@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <!-- Meta, title, CSS, favicons, etc. -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Přihlášení</title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="production/css/bootstrap.min.css" rel="stylesheet">
+
+        <link href="production/fonts/css/font-awesome.min.css" rel="stylesheet">
+        <link href="production/css/animate.min.css" rel="stylesheet">
+
+        <!-- Custom styling plus plugins -->
+        <link href="production/css/custom.css" rel="stylesheet">
+        <link href="production/css/icheck/flat/green.css" rel="stylesheet">
+        <script src="production/js/jquery.min.js"></script>
+
+    </head>
+
+    <body class="nav-md" style="background:#F7F7F7;">     
+        <div >
+            <div class="main_container">
+                <div id="registration" class="col-md-6 col-sm-6 col-xs-6" style="margin-top: 5%; margin-left: 25%">
+                    <div class="x_content">
+                        <div class="x_title" style="">
+                            <center><h1>Registrace do stážového programu</h1></center>
+                        </div>
+                        <form class="form-horizontal form-label-left" data-parsley-validate>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Jméno</label>
+                                <div class="col-md-8 col-sm-6 col-xs-12">
+                                    <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Příjmení </label>
+                                <div class="col-md-8 col-sm-6 col-xs-12">
+                                    <input type="text" id="last-name" name="last-name" required="required" class="form-control col-md-7 col-xs-12">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Pohlaví</label>
+                                <div class="col-md-8 col-sm-6 col-xs-12">
+                                    <select id="heard" class="form-control" required>
+                                        <option value="male">Muž</option>
+                                        <option value="female">Žena</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Datum narození</label>
+                                <div class="col-md-8 col-sm-6 col-xs-12">
+                                    <input id="birthday" class="date-picker form-control col-md-7 col-xs-12" required="required" type="date">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">E-mail</label>
+                                <div class="col-md-8 col-sm-6 col-xs-12">
+                                    <input id="email" class="date-picker form-control col-md-7 col-xs-12" required="required" type="email">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Telefon</label>
+                                <div class="col-md-8 col-sm-6 col-xs-12">
+                                    <input id="phone" class="date-picker form-control col-md-7 col-xs-12" required="required" type="tel">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Škola</label>
+                                <div class="col-md-8 col-sm-6 col-xs-12">
+                                    <input id="school" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Fakulta</label>
+                                <div class="col-md-8 col-sm-6 col-xs-12">
+                                    <input id="school" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Ročník</label>
+                                <div class="col-md-8 col-sm-6 col-xs-12">
+                                    <input id="school" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Zaměření</label>
+                                <div class="col-md-8 col-sm-6 col-xs-12">
+                                    <input id="school" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Zájmy</label>
+                                <div class="col-md-8 col-sm-6 col-xs-12">
+                                    <input id="interests" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Odkaz na Linked-In</label>
+                                <div class="col-md-8 col-sm-6 col-xs-12">
+                                    <input id="linkLinkedIn" class="date-picker form-control col-md-7 col-xs-12" required="required" type="url">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Životopis:</label>
+                                <div class="col-md-8 col-sm-6 col-xs-12">
+                                    <input id="resume" class="avatar-input" required="required" type="file">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Motivační dopis:</label>
+                                <div class="col-md-8 col-sm-6 col-xs-12">
+                                    <input id="resume" class="avatar-input" required="required" type="file">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12"></label>
+                                <div class="col-md-8 col-sm-6 col-xs-12">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" class="flat" required="" >* <a href="./souhlas.html" style="text-decoration: underline;">Souhlasím se zpracováním osobních údajů.</a>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="ln_solid"></div>
+                            <center>
+                                <div class="form-group">
+                                    <div class="col-md-8 col-sm-6 col-xs-12 col-md-offset-3">
+                                        <a href="staziste.html"><button type="submit" class="btn btn-success">Uložit</button> </a>
+
+                                    </div>
+                                </div>
+                            </center>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="production/js/bootstrap.min.js"></script>
+
+        <!-- bootstrap progress js -->
+        <script src="production/js/progressbar/bootstrap-progressbar.min.js"></script>
+        <script src="production/js/nicescroll/jquery.nicescroll.min.js"></script>
+        <!-- icheck -->
+        <script src="production/js/icheck/icheck.min.js"></script>
+        <!-- tags -->
+        <script src="production/js/tags/jquery.tagsinput.min.js"></script>
+        <!-- switchery -->
+        <script src="production/js/switchery/switchery.min.js"></script>
+        <!-- daterangepicker -->
+        <script type="text/javascript" src="production/js/moment/moment.min.js"></script>
+        <script type="text/javascript" src="production/js/datepicker/daterangepicker.js"></script>
+        <!-- richtext editor -->
+        <script src="production/js/editor/bootstrap-wysiwyg.js"></script>
+        <script src="production/js/editor/external/jquery.hotkeys.js"></script>
+        <script src="production/js/editor/external/google-code-prettify/prettify.js"></script>
+        <!-- select2 -->
+        <script src="production/js/select/select2.full.js"></script>
+        <!-- form validation -->
+        <script type="text/javascript" src="production/js/parsley/parsley.min.js"></script>
+        <!-- textarea resize -->
+        <script src="production/js/textarea/autosize.min.js"></script>
+        <script>
+            autosize($('.resizable_textarea'));
+        </script>
+        <!-- Autocomplete -->
+        <script type="text/javascript" src="production/js/autocomplete/countries.js"></script>
+        <script src="production/js/autocomplete/jquery.autocomplete.js"></script>
+        <!-- pace -->
+        <script src="production/js/pace/pace.min.js"></script>
+        <script type="text/javascript">
+            $(function () {
+                'use strict';
+                var countriesArray = $.map(countries, function (value, key) {
+                    return {
+                        value: value,
+                        data: key
+                    };
+                });
+                // Initialize autocomplete with custom appendTo:
+                $('#autocomplete-custom-append').autocomplete({
+                    lookup: countriesArray,
+                    appendTo: '#autocomplete-container'
+                });
+            });
+        </script>
+        <script src="production/js/custom.js"></script>
+        <!-- select2 -->
+        <script>
+            $(document).ready(function () {
+                $(".select2_single").select2({
+                    placeholder: "Select a state",
+                    allowClear: true
+                });
+                $(".select2_group").select2({});
+                $(".select2_multiple").select2({
+                    maximumSelectionLength: 4,
+                    placeholder: "With Max Selection limit 4",
+                    allowClear: true
+                });
+            });
+        </script>
+        <!-- /select2 -->
+        <!-- input tags -->
+        <script>
+            function onAddTag(tag) {
+                alert("Added a tag: " + tag);
+            }
+
+            function onRemoveTag(tag) {
+                alert("Removed a tag: " + tag);
+            }
+
+            function onChangeTag(input, tag) {
+                alert("Changed a tag: " + tag);
+            }
+
+            $(function () {
+                $('#tags_1').tagsInput({
+                    width: 'auto'
+                });
+            });
+        </script>
+        <!-- /input tags -->
+        <!-- form validation -->
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $.listen('parsley:field:validate', function () {
+                    validateFront();
+                });
+                $('#demo-form .btn').on('click', function () {
+                    $('#demo-form').parsley().validate();
+                    validateFront();
+                });
+                var validateFront = function () {
+                    if (true === $('#demo-form').parsley().isValid()) {
+                        $('.bs-callout-info').removeClass('hidden');
+                        $('.bs-callout-warning').addClass('hidden');
+                    } else {
+                        $('.bs-callout-info').addClass('hidden');
+                        $('.bs-callout-warning').removeClass('hidden');
+                    }
+                };
+            });
+
+            $(document).ready(function () {
+                $.listen('parsley:field:validate', function () {
+                    validateFront();
+                });
+                $('#demo-form2 .btn').on('click', function () {
+                    $('#demo-form2').parsley().validate();
+                    validateFront();
+                });
+                var validateFront = function () {
+                    if (true === $('#demo-form2').parsley().isValid()) {
+                        $('.bs-callout-info').removeClass('hidden');
+                        $('.bs-callout-warning').addClass('hidden');
+                    } else {
+                        $('.bs-callout-info').addClass('hidden');
+                        $('.bs-callout-warning').removeClass('hidden');
+                    }
+                };
+            });
+            try {
+                hljs.initHighlightingOnLoad();
+            } catch (err) {
+            }
+        </script>
+        <!-- /form validation -->
+        <!-- editor -->
+        <script>
+            $(document).ready(function () {
+                $('.xcxc').click(function () {
+                    $('#descr').val($('#editor').html());
+                });
+            });
+
+            $(function () {
+                function initToolbarBootstrapBindings() {
+                    var fonts = ['Serif', 'Sans', 'Arial', 'Arial Black', 'Courier',
+                        'Courier New', 'Comic Sans MS', 'Helvetica', 'Impact', 'Lucida Grande', 'Lucida Sans', 'Tahoma', 'Times',
+                        'Times New Roman', 'Verdana'
+                    ],
+                            fontTarget = $('[title=Font]').siblings('.dropdown-menu');
+                    $.each(fonts, function (idx, fontName) {
+                        fontTarget.append($('<li><a data-edit="fontName ' + fontName + '" style="font-family:\'' + fontName + '\'">' + fontName + '</a></li>'));
+                    });
+                    $('a[title]').tooltip({
+                        container: 'body'
+                    });
+                    $('.dropdown-menu input').click(function () {
+                        return false;
+                    })
+                            .change(function () {
+                                $(this).parent('.dropdown-menu').siblings('.dropdown-toggle').dropdown('toggle');
+                            })
+                            .keydown('esc', function () {
+                                this.value = '';
+                                $(this).change();
+                            });
+
+                    $('[data-role=magic-overlay]').each(function () {
+                        var overlay = $(this),
+                                target = $(overlay.data('target'));
+                        overlay.css('opacity', 0).css('position', 'absolute').offset(target.offset()).width(target.outerWidth()).height(target.outerHeight());
+                    });
+                    if ("onwebkitspeechchange" in document.createElement("input")) {
+                        var editorOffset = $('#editor').offset();
+                        $('#voiceBtn').css('position', 'absolute').offset({
+                            top: editorOffset.top,
+                            left: editorOffset.left + $('#editor').innerWidth() - 35
+                        });
+                    } else {
+                        $('#voiceBtn').hide();
+                    }
+                }
+                ;
+
+                function showErrorAlert(reason, detail) {
+                    var msg = '';
+                    if (reason === 'unsupported-file-type') {
+                        msg = "Unsupported format " + detail;
+                    } else {
+                        console.log("error uploading file", reason, detail);
+                    }
+                    $('<div class="alert"> <button type="button" class="close" data-dismiss="alert">&times;</button>' +
+                            '<strong>File upload error</strong> ' + msg + ' </div>').prependTo('#alerts');
+                }
+                ;
+                initToolbarBootstrapBindings();
+                $('#editor').wysiwyg({
+                    fileUploadError: showErrorAlert
+                });
+                window.prettyPrint && prettyPrint();
+            });
+        </script>
+    </body>
+
+</html>
+
+
+
+
+
