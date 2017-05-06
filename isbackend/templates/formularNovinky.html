@@ -1,181 +1,187 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <!-- Meta, title, CSS, favicons, etc. -->
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    {% load static %}
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Odběr novinek</title>
+    <title>Odběr novinek</title>
 
-        <!-- Bootstrap core CSS -->
-        <link href="production/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
 
-        <link href="production/fonts/css/font-awesome.min.css" rel="stylesheet">
-        <link href="production/css/animate.min.css" rel="stylesheet">
+    <link href="{% static 'fonts/css/font-awesome.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/animate.min.css' %}" rel="stylesheet">
 
-        <!-- Custom styling plus plugins -->
-        <link href="production/css/custom.css" rel="stylesheet">
-        <link href="production/css/icheck/flat/green.css" rel="stylesheet">
-        <script src="production/js/jquery.min.js"></script>
+    <!-- Custom styling plus plugins -->
+    <link href="{% static 'css/custom.css' %}" rel="stylesheet">
+    <link href="{% static 'css/icheck/flat/green.css' %}" rel="stylesheet">
+    <script src="{% static 'js/jquery.min.js' %}"></script>
 
-    </head>
+</head>
 
-    <body style="background:#F7F7F7;">     
-        <div id="wrapper">
-            <a href="production/echarts.html"></a>
-            <div id="registration" class="col-md-12 col-sm-12 col-xs-12" >
-                <div class="x_title">
-                    <h1>Odebírání novinek</h1>
+<body style="background:#F7F7F7;">
+<div id="wrapper">
+    <a href="{% static 'echarts.html"></a>
+    <div id="registration" class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_title">
+            <h1>Odebírání novinek</h1>
+        </div>
+        <form class="form-horizontal" data-parsley-validate>
+            <div class="x_content">
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Jméno</label>
+                    <div class="col-md-8 col-sm-6 col-xs-12">
+                        <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
+                    </div>
+
                 </div>
-                <form class="form-horizontal" data-parsley-validate>
-                    <div class="x_content">
-                        <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Jméno</label>
-                            <div class="col-md-8 col-sm-6 col-xs-12">
-                                <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
-                            </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Přímení</label>
+                    <div class="col-md-8 col-sm-6 col-xs-12">
+                        <input type="text" id="last-name" required="required" class="form-control col-md-7 col-xs-12">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Přímení</label>
+                    <div class="col-md-8 col-sm-6 col-xs-12">
+                        <input type="text" id="last-name" required="required" class="form-control col-md-7 col-xs-12">
+                    </div>
+                </div>
 
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Přímení</label>
-                            <div class="col-md-8 col-sm-6 col-xs-12">
-                                <input type="text" id="last-name" required="required" class="form-control col-md-7 col-xs-12">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Přímení</label>
-                            <div class="col-md-8 col-sm-6 col-xs-12">
-                                <input type="text" id="last-name" required="required" class="form-control col-md-7 col-xs-12">
-                            </div>
-                        </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Škola</label>
+                    <div class="col-md-8 col-sm-6 col-xs-12">
+                        <input id="school" class="form-control col-md-7 col-xs-12" type="text">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Ročník</label>
+                    <div class="col-md-8 col-sm-6 col-xs-12">
+                        <input type="text" id="year" class="form-control col-md-7 col-xs-12">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Telefon</label>
+                    <div class="col-md-8 col-sm-6 col-xs-12">
+                        <input type="tel" id="telephone" class="form-control col-md-7 col-xs-12">
+                    </div>
+                </div>
 
-                        <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Škola</label>
-                            <div class="col-md-8 col-sm-6 col-xs-12">
-                                <input id="school" class="form-control col-md-7 col-xs-12" type="text">
-                            </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Úvazek</label>
+                    <div class="col-md-8 col-sm-6 col-xs-12">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" class="flat"> Stáž
+                            </label>
                         </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Ročník</label>
-                            <div class="col-md-8 col-sm-6 col-xs-12">
-                                <input type="text" id="year" class="form-control col-md-7 col-xs-12" >
-                            </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" class="flat"> Částečný úvazek
+                            </label>
                         </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Telefon</label>
-                            <div class="col-md-8 col-sm-6 col-xs-12">
-                                <input type="tel" id="telephone" class="form-control col-md-7 col-xs-12">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Úvazek</label>
-                            <div class="col-md-8 col-sm-6 col-xs-12">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" class="flat" > Stáž
-                                    </label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" class="flat" > Částečný úvazek
-                                    </label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" class="flat" > Hlavní pracovní poměr
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Zájmy</label>
-                            <div class="col-md-8 col-sm-6 col-xs-12">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" class="flat" > Design
-                                    </label>s
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" class="flat" > Design
-                                    </label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" class="flat" > Databáze
-                                    </label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" class="flat" > Systémy
-                                    </label>
-                                </div>
-                                
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" class="flat" > Umělá inteligence
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" class="flat" required="" >* <a href="./souhlas.html" style="text-decoration: underline;">Souhlasím se zpracováním osobních údajů.</a>
-                                    </label>
-                                </div>
-                        </div>
-
-
-                        <div class="ln_solid"></div>
-                        <div class="form-group">
-                            <div class="col-md-8 col-sm-6 col-xs-12 col-md-offset-3">
-                                <a href="staziste.html"><button type="submit" class="btn btn-success">Uložit</button> </a>
-
-                            </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" class="flat"> Hlavní pracovní poměr
+                            </label>
                         </div>
                     </div>
-                </form>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Zájmy</label>
+                    <div class="col-md-8 col-sm-6 col-xs-12">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" class="flat"> Design
+                            </label>s
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" class="flat"> Design
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" class="flat"> Databáze
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" class="flat"> Systémy
+                            </label>
+                        </div>
 
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" class="flat"> Umělá inteligence
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" class="flat" required="">* <a href="./souhlas.html"
+                                                                                 style="text-decoration: underline;">Souhlasím
+                            se zpracováním osobních údajů.</a>
+                        </label>
+                    </div>
+                </div>
+
+
+                <div class="ln_solid"></div>
+                <div class="form-group">
+                    <div class="col-md-8 col-sm-6 col-xs-12 col-md-offset-3">
+                        <a href="staziste.html">
+                            <button type="submit" class="btn btn-success">Uložit</button>
+                        </a>
+
+                    </div>
+                </div>
             </div>
-        </div>
-        <script src="production/js/bootstrap.min.js"></script>
+        </form>
 
-        <!-- bootstrap progress js -->
-        <script src="production/js/progressbar/bootstrap-progressbar.min.js"></script>
-        <script src="production/js/nicescroll/jquery.nicescroll.min.js"></script>
-        <!-- icheck -->
-        <script src="production/js/icheck/icheck.min.js"></script>
-        <!-- tags -->
-        <script src="production/js/tags/jquery.tagsinput.min.js"></script>
-        <!-- switchery -->
-        <script src="production/js/switchery/switchery.min.js"></script>
-        <!-- daterangepicker -->
-        <script type="text/javascript" src="production/js/moment/moment.min.js"></script>
-        <script type="text/javascript" src="production/js/datepicker/daterangepicker.js"></script>
-        <!-- richtext editor -->
-        <script src="production/js/editor/bootstrap-wysiwyg.js"></script>
-        <script src="production/js/editor/external/jquery.hotkeys.js"></script>
-        <script src="production/js/editor/external/google-code-prettify/prettify.js"></script>
-        <!-- select2 -->
-        <script src="production/js/select/select2.full.js"></script>
-        <!-- form validation -->
-        <script type="text/javascript" src="production/js/parsley/parsley.min.js"></script>
-        <!-- textarea resize -->
-        <script src="production/js/textarea/autosize.min.js"></script>
-        <script>
+    </div>
+</div>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+<!-- bootstrap progress js -->
+<script src="{% static 'js/progressbar/bootstrap-progressbar.min.js' %}"></script>
+<script src="{% static 'js/nicescroll/jquery.nicescroll.min.js' %}"></script>
+<!-- icheck -->
+<script src="{% static 'js/icheck/icheck.min.js' %}"></script>
+<!-- tags -->
+<script src="{% static 'js/tags/jquery.tagsinput.min.js' %}"></script>
+<!-- switchery -->
+<script src="{% static 'js/switchery/switchery.min.js' %}"></script>
+<!-- daterangepicker -->
+<script type="text/javascript" src="{% static 'js/moment/moment.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/datepicker/daterangepicker.js' %}"></script>
+<!-- richtext editor -->
+<script src="{% static 'js/editor/bootstrap-wysiwyg.js' %}"></script>
+<script src="{% static 'js/editor/external/jquery.hotkeys.js' %}"></script>
+<script src="{% static 'js/editor/external/google-code-prettify/prettify.js' %}"></script>
+<!-- select2 -->
+<script src="{% static 'js/select/select2.full.js' %}"></script>
+<!-- form validation -->
+<script type="text/javascript" src="{% static 'js/parsley/parsley.min.js' %}"></script>
+<!-- textarea resize -->
+<script src="{% static 'js/textarea/autosize.min.js' %}"></script>
+<script>
             autosize($('.resizable_textarea'));
-        </script>
-        <!-- Autocomplete -->
-        <script type="text/javascript" src="production/js/autocomplete/countries.js"></script>
-        <script src="production/js/autocomplete/jquery.autocomplete.js"></script>
-        <!-- pace -->
-        <script src="production/js/pace/pace.min.js"></script>
-        <script type="text/javascript">
+
+</script>
+<!-- Autocomplete -->
+<script type="text/javascript" src="{% static 'js/autocomplete/countries.js' %}"></script>
+<script src="{% static 'js/autocomplete/jquery.autocomplete.js' %}"></script>
+<!-- pace -->
+<script src="{% static 'js/pace/pace.min.js' %}"></script>
+<script type="text/javascript">
             $(function () {
                 'use strict';
                 var countriesArray = $.map(countries, function (value, key) {
@@ -190,12 +196,13 @@
                     appendTo: '#autocomplete-container'
                 });
             });
-        </script>
-        <script src="production/js/custom.js"></script>
+
+</script>
+<script src="{% static 'js/custom.js' %}"></script>
 
 
-        <!-- select2 -->
-        <script>
+<!-- select2 -->
+<script>
             $(document).ready(function () {
                 $(".select2_single").select2({
                     placeholder: "Select a state",
@@ -208,10 +215,11 @@
                     allowClear: true
                 });
             });
-        </script>
-        <!-- /select2 -->
-        <!-- input tags -->
-        <script>
+
+</script>
+<!-- /select2 -->
+<!-- input tags -->
+<script>
             function onAddTag(tag) {
                 alert("Added a tag: " + tag);
             }
@@ -229,10 +237,11 @@
                     width: 'auto'
                 });
             });
-        </script>
-        <!-- /input tags -->
-        <!-- form validation -->
-        <script type="text/javascript">
+
+</script>
+<!-- /input tags -->
+<!-- form validation -->
+<script type="text/javascript">
             $(document).ready(function () {
                 $.listen('parsley:field:validate', function () {
                     validateFront();
@@ -274,10 +283,11 @@
                 hljs.initHighlightingOnLoad();
             } catch (err) {
             }
-        </script>
-        <!-- /form validation -->
-        <!-- editor -->
-        <script>
+
+</script>
+<!-- /form validation -->
+<!-- editor -->
+<script>
             $(document).ready(function () {
                 $('.xcxc').click(function () {
                     $('#descr').val($('#editor').html());
@@ -342,8 +352,9 @@
                 });
                 window.prettyPrint && prettyPrint();
             });
-        </script>
-    </body>
+
+</script>
+</body>
 
 </html>
 

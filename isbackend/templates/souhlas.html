@@ -1,79 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <!-- Meta, title, CSS, favicons, etc. -->
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    {% load static %}
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Přihlášení</title>
+    <title>Přihlášení</title>
 
-        <!-- Bootstrap core CSS -->
-        <link href="production/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
 
-        <link href="production/fonts/css/font-awesome.min.css" rel="stylesheet">
-        <link href="production/css/animate.min.css" rel="stylesheet">
+    <link href="{% static 'fonts/css/font-awesome.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/animate.min.css' %}" rel="stylesheet">
 
-        <!-- Custom styling plus plugins -->
-        <link href="production/css/custom.css" rel="stylesheet">
-        <link href="production/css/icheck/flat/green.css" rel="stylesheet">
-        <script src="production/js/jquery.min.js"></script>
+    <!-- Custom styling plus plugins -->
+    <link href="{% static 'css/custom.css' %}" rel="stylesheet">
+    <link href="{% static 'css/icheck/flat/green.css' %}" rel="stylesheet">
+    <script src="{% static 'js/jquery.min.js' %}"></script>
 
-    </head>
+</head>
 
-    <body class="nav-md" style="background:#F7F7F7;">     
-        <div >
-            <div class="main_container">
-                <div id="registration" class="col-md-6 col-sm-6 col-xs-6" style="margin-top: 5%; margin-left: 25%">
+<body class="nav-md" style="background:#F7F7F7;">
+<div>
+    <div class="main_container">
+        <div id="registration" class="col-md-6 col-sm-6 col-xs-6" style="margin-top: 5%; margin-left: 25%">
 
-                    <div class="x_title" style="">
-                        <center><h1>Souhlas se zpracováním osobních údajů</h1></center>
-                    </div>
-                    <div class="x_content">
-                        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mollis ligula in pulvinar egestas. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse maximus nisi et sagittis feugiat. Donec pretium tellus in mauris tristique, quis faucibus ligula vestibulum. Nullam blandit, nisl in varius imperdiet, libero sapien mollis erat, ullamcorper bibendum magna tellus et risus. Donec pretium porttitor efficitur. In sed tortor et dui consectetur scelerisque. Morbi sodales turpis urna, eu pharetra nisi blandit vel. Suspendisse a ipsum rutrum, malesuada nisl non, dapibus lorem.</p>
-                        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mollis ligula in pulvinar egestas. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse maximus nisi et sagittis feugiat. Donec pretium tellus in mauris tristique, quis faucibus ligula vestibulum. Nullam blandit, nisl in varius imperdiet, libero sapien mollis erat, ullamcorper bibendum magna tellus et risus. Donec pretium porttitor efficitur. In sed tortor et dui consectetur scelerisque. Morbi sodales turpis urna, eu pharetra nisi blandit vel. Suspendisse a ipsum rutrum, malesuada nisl non, dapibus lorem.</p>
-                        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mollis ligula in pulvinar egestas. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse maximus nisi et sagittis feugiat. Donec pretium tellus in mauris tristique, quis faucibus ligula vestibulum. Nullam blandit, nisl in varius imperdiet, libero sapien mollis erat, ullamcorper bibendum magna tellus et risus. Donec pretium porttitor efficitur. In sed tortor et dui consectetur scelerisque. Morbi sodales turpis urna, eu pharetra nisi blandit vel. Suspendisse a ipsum rutrum, malesuada nisl non, dapibus lorem.</p>
-                    </div>
-
-                </div>
+            <div class="x_title" style="">
+                <center><h1>Souhlas se zpracováním osobních údajů</h1></center>
             </div>
+            <div class="x_content">
+                <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mollis ligula in pulvinar egestas.
+                    Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+                    Suspendisse maximus nisi et sagittis feugiat. Donec pretium tellus in mauris tristique, quis
+                    faucibus ligula vestibulum. Nullam blandit, nisl in varius imperdiet, libero sapien mollis erat,
+                    ullamcorper bibendum magna tellus et risus. Donec pretium porttitor efficitur. In sed tortor et dui
+                    consectetur scelerisque. Morbi sodales turpis urna, eu pharetra nisi blandit vel. Suspendisse a
+                    ipsum rutrum, malesuada nisl non, dapibus lorem.</p>
+                <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mollis ligula in pulvinar egestas.
+                    Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+                    Suspendisse maximus nisi et sagittis feugiat. Donec pretium tellus in mauris tristique, quis
+                    faucibus ligula vestibulum. Nullam blandit, nisl in varius imperdiet, libero sapien mollis erat,
+                    ullamcorper bibendum magna tellus et risus. Donec pretium porttitor efficitur. In sed tortor et dui
+                    consectetur scelerisque. Morbi sodales turpis urna, eu pharetra nisi blandit vel. Suspendisse a
+                    ipsum rutrum, malesuada nisl non, dapibus lorem.</p>
+                <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mollis ligula in pulvinar egestas.
+                    Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+                    Suspendisse maximus nisi et sagittis feugiat. Donec pretium tellus in mauris tristique, quis
+                    faucibus ligula vestibulum. Nullam blandit, nisl in varius imperdiet, libero sapien mollis erat,
+                    ullamcorper bibendum magna tellus et risus. Donec pretium porttitor efficitur. In sed tortor et dui
+                    consectetur scelerisque. Morbi sodales turpis urna, eu pharetra nisi blandit vel. Suspendisse a
+                    ipsum rutrum, malesuada nisl non, dapibus lorem.</p>
+            </div>
+
         </div>
+    </div>
+</div>
 
-        <script src="production/js/bootstrap.min.js"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
 
-        <!-- bootstrap progress js -->
-        <script src="production/js/progressbar/bootstrap-progressbar.min.js"></script>
-        <script src="production/js/nicescroll/jquery.nicescroll.min.js"></script>
-        <!-- icheck -->
-        <script src="production/js/icheck/icheck.min.js"></script>
-        <!-- tags -->
-        <script src="production/js/tags/jquery.tagsinput.min.js"></script>
-        <!-- switchery -->
-        <script src="production/js/switchery/switchery.min.js"></script>
-        <!-- daterangepicker -->
-        <script type="text/javascript" src="production/js/moment/moment.min.js"></script>
-        <script type="text/javascript" src="production/js/datepicker/daterangepicker.js"></script>
-        <!-- richtext editor -->
-        <script src="production/js/editor/bootstrap-wysiwyg.js"></script>
-        <script src="production/js/editor/external/jquery.hotkeys.js"></script>
-        <script src="production/js/editor/external/google-code-prettify/prettify.js"></script>
-        <!-- select2 -->
-        <script src="production/js/select/select2.full.js"></script>
-        <!-- form validation -->
-        <script type="text/javascript" src="production/js/parsley/parsley.min.js"></script>
-        <!-- textarea resize -->
-        <script src="production/js/textarea/autosize.min.js"></script>
-        <script>
+<!-- bootstrap progress js -->
+<script src="{% static 'js/progressbar/bootstrap-progressbar.min.js' %}"></script>
+<script src="{% static 'js/nicescroll/jquery.nicescroll.min.js' %}"></script>
+<!-- icheck -->
+<script src="{% static 'js/icheck/icheck.min.js' %}"></script>
+<!-- tags -->
+<script src="{% static 'js/tags/jquery.tagsinput.min.js' %}"></script>
+<!-- switchery -->
+<script src="{% static 'js/switchery/switchery.min.js' %}"></script>
+<!-- daterangepicker -->
+<script type="text/javascript" src="{% static 'js/moment/moment.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/datepicker/daterangepicker.js' %}"></script>
+<!-- richtext editor -->
+<script src="{% static 'js/editor/bootstrap-wysiwyg.js' %}"></script>
+<script src="{% static 'js/editor/external/jquery.hotkeys.js' %}"></script>
+<script src="{% static 'js/editor/external/google-code-prettify/prettify.js' %}"></script>
+<!-- select2 -->
+<script src="{% static 'js/select/select2.full.js' %}"></script>
+<!-- form validation -->
+<script type="text/javascript" src="{% static 'js/parsley/parsley.min.js' %}"></script>
+<!-- textarea resize -->
+<script src="{% static 'js/textarea/autosize.min.js' %}"></script>
+<script>
             autosize($('.resizable_textarea'));
-        </script>
-        <!-- Autocomplete -->
-        <script type="text/javascript" src="production/js/autocomplete/countries.js"></script>
-        <script src="production/js/autocomplete/jquery.autocomplete.js"></script>
-        <!-- pace -->
-        <script src="production/js/pace/pace.min.js"></script>
-        <script type="text/javascript">
+
+</script>
+<!-- Autocomplete -->
+<script type="text/javascript" src="{% static 'js/autocomplete/countries.js' %}"></script>
+<script src="{% static 'js/autocomplete/jquery.autocomplete.js' %}"></script>
+<!-- pace -->
+<script src="{% static 'js/pace/pace.min.js' %}"></script>
+<script type="text/javascript">
             $(function () {
                 'use strict';
                 var countriesArray = $.map(countries, function (value, key) {
@@ -88,10 +108,11 @@
                     appendTo: '#autocomplete-container'
                 });
             });
-        </script>
-        <script src="production/js/custom.js"></script>
-        <!-- select2 -->
-        <script>
+
+</script>
+<script src="{% static 'js/custom.js' %}"></script>
+<!-- select2 -->
+<script>
             $(document).ready(function () {
                 $(".select2_single").select2({
                     placeholder: "Select a state",
@@ -104,10 +125,11 @@
                     allowClear: true
                 });
             });
-        </script>
-        <!-- /select2 -->
-        <!-- input tags -->
-        <script>
+
+</script>
+<!-- /select2 -->
+<!-- input tags -->
+<script>
             function onAddTag(tag) {
                 alert("Added a tag: " + tag);
             }
@@ -125,10 +147,11 @@
                     width: 'auto'
                 });
             });
-        </script>
-        <!-- /input tags -->
-        <!-- form validation -->
-        <script type="text/javascript">
+
+</script>
+<!-- /input tags -->
+<!-- form validation -->
+<script type="text/javascript">
             $(document).ready(function () {
                 $.listen('parsley:field:validate', function () {
                     validateFront();
@@ -170,10 +193,11 @@
                 hljs.initHighlightingOnLoad();
             } catch (err) {
             }
-        </script>
-        <!-- /form validation -->
-        <!-- editor -->
-        <script>
+
+</script>
+<!-- /form validation -->
+<!-- editor -->
+<script>
             $(document).ready(function () {
                 $('.xcxc').click(function () {
                     $('#descr').val($('#editor').html());
@@ -238,8 +262,9 @@
                 });
                 window.prettyPrint && prettyPrint();
             });
-        </script>
-    </body>
+
+</script>
+</body>
 
 </html>
 
