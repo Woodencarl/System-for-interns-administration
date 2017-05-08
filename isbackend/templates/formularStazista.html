@@ -32,123 +32,32 @@
                 <div class="x_title" style="">
                     <center><h1>Registrace do stážového programu</h1></center>
                 </div>
-                <form class="form-horizontal form-label-left" data-parsley-validate>
 
-                    <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Jméno</label>
-                        <div class="col-md-8 col-sm-6 col-xs-12">
-                            <input type="text" id="first-name" required="required"
-                                   class="form-control col-md-7 col-xs-12">
-                        </div>
+                <form class="form-horizontal form-label-left" method="post" action="">
+                    {% csrf_token %}
 
-                    </div>
+                    {% for field in form %}
                     <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Příjmení </label>
-                        <div class="col-md-8 col-sm-6 col-xs-12">
-                            <input type="text" id="last-name" name="last-name" required="required"
-                                   class="form-control col-md-7 col-xs-12">
-                        </div>
-                    </div>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">
+                            {{ field.label}}<span class="required">*</span>
+                        </label>
 
-                    <div class="form-group">
-                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Pohlaví</label>
                         <div class="col-md-8 col-sm-6 col-xs-12">
-                            <select id="sex" class="form-control" required>
-                                <option value="male">Muž</option>
-                                <option value="female">Žena</option>
-                            </select>
+                            {{ field }}
+                            <ul class="parsley-errors-list filled">
+                                <li class="parsley-required">
+                                    {{ field.errors }}
+                                </li>
+                            </ul>
                         </div>
                     </div>
-
-                    <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Datum narození</label>
-                        <div class="col-md-8 col-sm-6 col-xs-12">
-                            <input id="birthday" class="date-picker form-control col-md-7 col-xs-12" required="required"
-                                   type="date">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">E-mail</label>
-                        <div class="col-md-8 col-sm-6 col-xs-12">
-                            <input id="email" class="date-picker form-control col-md-7 col-xs-12" required="required"
-                                   type="email">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Telefon</label>
-                        <div class="col-md-8 col-sm-6 col-xs-12">
-                            <input id="phone" class="date-picker form-control col-md-7 col-xs-12" required="required"
-                                   type="tel">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Škola</label>
-                        <div class="col-md-8 col-sm-6 col-xs-12">
-                            <input id="school" class="date-picker form-control col-md-7 col-xs-12" required="required"
-                                   type="text">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Fakulta</label>
-                        <div class="col-md-8 col-sm-6 col-xs-12">
-                            <input id="faculty" class="date-picker form-control col-md-7 col-xs-12" required="required"
-                                   type="text">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Ročník</label>
-                        <div class="col-md-8 col-sm-6 col-xs-12">
-                            <input id="year" class="date-picker form-control col-md-7 col-xs-12" required="required"
-                                   type="text">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Zaměření</label>
-                        <div class="col-md-8 col-sm-6 col-xs-12">
-                            <input id="focus" class="date-picker form-control col-md-7 col-xs-12" required="required"
-                                   type="text">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Zájmy</label>
-                        <div class="col-md-8 col-sm-6 col-xs-12">
-                            <input id="interests" class="date-picker form-control col-md-7 col-xs-12"
-                                   required="required" type="text">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Životopis:</label>
-                        <div class="col-md-8 col-sm-6 col-xs-12">
-                            <input id="resume" class="avatar-input" required="required" type="file">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Motivační dopis:</label>
-                        <div class="col-md-8 col-sm-6 col-xs-12">
-                            <input id="cover_letter" class="avatar-input" required="required" type="file">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12"></label>
-                        <div class="col-md-8 col-sm-6 col-xs-12">
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" class="flat" required="">* <a href="souhlas/"
-                                                                                         style="text-decoration: underline;">Souhlasím
-                                    se zpracováním osobních údajů.</a>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
+                    {% endfor %}
 
                     <div class="ln_solid"></div>
                     <center>
                         <div class="form-group">
                             <div class="col-md-8 col-sm-6 col-xs-12 col-md-offset-3">
-                                <a href="staziste.html">
-                                    <button type="submit" class="btn btn-success">Uložit</button>
-                                </a>
-
+                                <button type="submit" class="btn btn-success">Uložit</button>
                             </div>
                         </div>
                     </center>
@@ -160,7 +69,6 @@
 </div>
 
 <script src="{% static 'js/bootstrap.min.js' %}"></script>
-
 <!-- bootstrap progress js -->
 <script src="{% static 'js/progressbar/bootstrap-progressbar.min.js' %}"></script>
 <script src="{% static 'js/nicescroll/jquery.nicescroll.min.js' %}"></script>
@@ -183,6 +91,11 @@
 <script type="text/javascript" src="{% static 'js/parsley/parsley.min.js' %}"></script>
 <!-- textarea resize -->
 <script src="{% static 'js/textarea/autosize.min.js' %}"></script>
+
+<script src="{% static 'js/custom.js' %}"></script>
+
+<!-- form validation -->
+<script src="{% static 'js/validator/validator.js' %}"></script>
 <script>
             autosize($('.resizable_textarea'));
 
@@ -208,8 +121,8 @@
                 });
             });
 
+
 </script>
-<script src="{% static 'js/custom.js' %}"></script>
 <!-- select2 -->
 <script>
             $(document).ready(function () {
@@ -246,6 +159,7 @@
                     width: 'auto'
                 });
             });
+
 
 </script>
 <!-- /input tags -->
@@ -292,6 +206,7 @@
                 hljs.initHighlightingOnLoad();
             } catch (err) {
             }
+
 
 </script>
 <!-- /form validation -->
@@ -361,6 +276,50 @@
                 });
                 window.prettyPrint && prettyPrint();
             });
+
+
+</script>
+<script>
+    // initialize the validator function
+    validator.message['date'] = 'not a real date';
+
+    // validate a field on "blur" event, a 'select' on 'change' event & a '.reuired' classed multifield on 'keyup':
+    $('form')
+      .on('blur', 'input[required], input.optional, select.required', validator.checkField)
+      .on('change', 'select.required', validator.checkField)
+      .on('keypress', 'input[required][pattern]', validator.keypress);
+
+    $('.multi.required')
+      .on('keyup blur', 'input', function() {
+        validator.checkField.apply($(this).siblings().last()[0]);
+      });
+
+    // bind the validation to the form submit event
+    //$('#send').click('submit');//.prop('disabled', true);
+
+    $('form').submit(function(e) {
+      e.preventDefault();
+      var submit = true;
+      // evaluate the form using generic validaing
+      if (!validator.checkAll($(this))) {
+        submit = false;
+      }
+
+      if (submit)
+        this.submit();
+      return false;
+    });
+
+    /* FOR DEMO ONLY */
+    $('#vfields').change(function() {
+      $('form').toggleClass('mode2');
+    }).prop('checked', false);
+
+    $('#alerts').change(function() {
+      validator.defaults.alerts = (this.checked) ? false : true;
+      if (this.checked)
+        $('form .alert').remove();
+    }).prop('checked', false);
 
 </script>
 </body>

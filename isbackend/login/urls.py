@@ -19,6 +19,6 @@ from .views import viewLogin
 
 urlpatterns = [
 
-    url(r'^$', viewLogin.as_view(), name='index'),
+    url(r'^$', viewLogin, name='login'),
 
 ]

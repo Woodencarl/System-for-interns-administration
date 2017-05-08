@@ -15,10 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import url
 from .views import viewIntern
-from .views import viewInternForm
+from .views import manage_form_intern
 
+# viewInternForm.as_view()
 urlpatterns = [
-    url(r'^formular/', viewInternForm.as_view(), name='internsForm'),
+    url(r'^formular/', manage_form_intern, name='internsForm'),
     url(r'^$', viewIntern.as_view(), name='interns'),
 
 ]
