@@ -16,13 +16,18 @@ def viewLogin(request):
 
     if request.method == 'POST':
         form = LoginForm(request.POST)
+        print('blemblem')
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
             raw_password = form.cleaned_data.get('password')
+            print(username, raw_password)
             user = authenticate(username=username, password=raw_password)
             login(request, user)
             return redirect('staziste/')
+        else:
+            print('form is not valid')
+            print(form.errors)
     else:
         form = LoginForm()
     return render(request, 'prihlaseni.html', {'form': form})

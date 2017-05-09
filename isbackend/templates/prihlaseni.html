@@ -43,18 +43,18 @@
     <div id="wrapper">
         <div id="login" class="animate form">
             <section class="login_content">
-
+                {% block content %}
                 <form method="post" action="">
                     {% csrf_token %}
 
                     <h1>Přihlášení</h1>
+                    {{ form.as_p }}
+                    <!--<input type="text" name="username" id="username" class="form-control"-->
+                    <!--placeholder="Uživatelské jméno"-->
+                    <!--required=""/>-->
 
-                    <input type="text" name="username" id="username" class="form-control"
-                           placeholder="Uživatelské jméno"
-                           required=""/>
-
-                    <input type="password" name="password" id="password" class="form-control" placeholder="Heslo"
-                           required=""/>
+                    <!--<input type="password" name="password" id="password" class="form-control" placeholder="Heslo"-->
+                    <!--required=""/>-->
                     {% if form.errors %}
                     <p>Špatné přihlašovací údaje</p>
                     {% endif %}
@@ -62,6 +62,7 @@
 
                 </form>
                 <!-- form -->
+                {% endblock %}
             </section>
             <!-- content -->
         </div>
@@ -76,6 +77,9 @@
     function badLogin(){
     alert ("Špatné přihlašovací údaje");
      }
+
+
+
 
 
 
