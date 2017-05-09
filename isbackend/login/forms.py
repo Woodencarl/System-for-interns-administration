@@ -1,6 +1,8 @@
 from django import forms
-from django.utils.translation import ugettext_lazy as _
+from django.contrib.auth.models import User
 
 
-class LoginForm(forms):
-    pass
+class LoginForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ('username', 'password')

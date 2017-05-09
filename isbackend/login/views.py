@@ -25,7 +25,7 @@ def viewLogin(request):
             return redirect('staziste/')
     else:
         form = LoginForm()
-    return render(request, '/', {'form': form})
+    return render(request, 'prihlaseni.html', {'form': form})
 
 
 
