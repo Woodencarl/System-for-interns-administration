@@ -3,7 +3,10 @@ from django.forms import modelformset_factory
 from django.shortcuts import render
 from django.views import generic
 from .forms import InternForm
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import login
+
+
 
 def manage_form_intern(request):
     if request.method == 'POST':
@@ -16,14 +19,7 @@ def manage_form_intern(request):
     return render(request, 'formularStazista.html', {'form': form})
 
 
-# Create your views here.
 class viewIntern(generic.TemplateView):
     """Login view as home page."""
 
     template_name = 'staziste.html'
-
-    # class viewInternForm(generic.TemplateView):
-    """Login view as home page."""
-
-    # template_name = 'formularStazista.html'
-
