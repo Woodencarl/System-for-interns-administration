@@ -16,6 +16,12 @@ class RegisterView(generic.CreateView):
     model = Intern
     form_class = InternForm
     success_url = '/diky/'
+    print('-------------LETS LIST ALL INTERNS-----------------')
+
+    # pprint(Intern.objects.filter(
+    #         active=True))
+    # for intern in Intern.objects:
+    #     print(intern.first_name)
 
     def form_valid(self, form):
         print('PASSES VALIDATION')
@@ -28,9 +34,21 @@ class RegisterView(generic.CreateView):
         return super(RegisterView, self).form_valid(form)
 
 
-class viewIntern(generic.TemplateView):
+class viewIntern(generic.CreateView):
     """Login view as home page."""
     template_name = 'staziste.html'
+    model = Intern
+    fields = '__all__'
+
+    def get_context_data(self, **kwargs):
+        """Feed the template with all required DB data to display."""
+        # get the context object
+        context = super(viewIntern, self).get_context_data(**kwargs)
+        pprint(Intern.objects.filter(active=True))
+        context['interns_list'] = [(Intern.objects.filter(
+            active=True))]
+
+        return context
 
 
 class ThanksView(generic.TemplateView):

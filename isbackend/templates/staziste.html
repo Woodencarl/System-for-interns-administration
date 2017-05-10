@@ -3,6 +3,7 @@
 
 <head>
     {% load static %}
+
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- Meta, title, CSS, favicons, etc. -->
     <meta charset="utf-8">
@@ -90,6 +91,7 @@
         </div>
 
         <!-- page content -->
+        {% block content %}
         <div class="right_col" role="main">
             <div class="">
 
@@ -102,7 +104,7 @@
 
                                 <div class="clearfix"></div>
                             </div>
-                            <!--                                    <p>Zobrazované sloupce</p>
+                            <!--                                   <p>Zobrazované sloupce</p>
                                                                 <div class="checkbox">
                                                                     <label>
                                                                         <input type="checkbox" class="flat" checked="checked"> Jméno
@@ -137,48 +139,18 @@
                                         <th>E-mail</th>
                                         <th>Telefon</th>
                                         <th>Status</th>
-                                        <th>Mentor</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-
+                                    {% for intern in interns_list %}
                                     <tr>
-                                        <td>Anna</td>
-                                        <td>Smith</td>
-                                        <td><a href="mailto:mail@mail.com">E-mail@mail.com</a></td>
-                                        <td>731 588 999</td>
-                                        <td>Working</td>
-                                        <td>Jessica Yellow</td>
+                                        <td>{{ intern.first_name }}</td>
+                                        <td>{{ intern.last_name }}</td>
+                                        <td><a href="mailto:{{ intern.e_mail }}">{{ intern.e_mail }}</a></td>
+                                        <td>{{ intern.phone }}</td>
+                                        <td>{{ intern.status }}</td>
                                     </tr>
-
-                                    <tr>
-
-                                        <td>Tiger</td>
-                                        <td>Nixon</td>
-                                        <td><a href="mailto:mail@mail.com">E-mail@mail.com</a></td>
-                                        <td>657 596 164</td>
-                                        <td>New</td>
-                                        <td>-</td>
-                                    </tr>
-
-                                    <tr>
-
-                                        <td>Jon</td>
-                                        <td>Doe</td>
-                                        <td><a href="mailto:mail@mail.com">E-mail@mail.com</a></td>
-                                        <td>226 668 779</td>
-                                        <td>Waiting</td>
-                                        <td>-</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Gepard</td>
-                                        <td>Fast</td>
-                                        <td><a href="mailto:mail@mail.com">E-mail@mail.com</a></td>
-                                        <td>984 564 849</td>
-                                        <td>Stáž ukončena a nepokračuje</td>
-                                        <td>Jan Man</td>
-                                    </tr>
+                                    {% endfor %}
 
                                     </tbody>
                                 </table>
@@ -186,18 +158,18 @@
                             </div>
 
                         </div>
-                        <a href="profilStazisty.html">
-                            <button type="submit" class="btn btn-success">Zobraz Profil</button>
-                        </a>
-                        <a href="formularStazista.html">
-                            <button type="submit" class="btn btn-success">Zobraz formulář registrace</button>
-                        </a>
-                        <a href="formularPozice.html">
-                            <button type="submit" class="btn btn-success">Zobraz formulář pozice</button>
-                        </a>
-                        <a href="formularNovinky.html">
-                            <button type="submit" class="btn btn-success">Zobraz formulář novinky</button>
-                        </a>
+                        <!--<a href="profilStazisty.html">-->
+                        <!--<button type="submit" class="btn btn-success">Zobraz Profil</button>-->
+                        <!--</a>-->
+                        <!--<a href="formularStazista.html">-->
+                        <!--<button type="submit" class="btn btn-success">Zobraz formulář registrace</button>-->
+                        <!--</a>-->
+                        <!--<a href="formularPozice.html">-->
+                        <!--<button type="submit" class="btn btn-success">Zobraz formulář pozice</button>-->
+                        <!--</a>-->
+                        <!--<a href="formularNovinky.html">-->
+                        <!--<button type="submit" class="btn btn-success">Zobraz formulář novinky</button>-->
+                        <!--</a>-->
                     </div>
                 </div>
             </div>
@@ -210,8 +182,8 @@
                 <div class="clearfix"></div>
             </footer>
             <!-- /footer content -->
-
         </div>
+         {% endblock content %}
         <!-- /page content -->
     </div>
 
@@ -294,6 +266,12 @@
 
 
 
+
+
+
+
+
+
 </script>
 <script type="text/javascript">
             $(document).ready(function () {
@@ -314,6 +292,12 @@
                 });
             });
             TableManageButtons.init();
+
+
+
+
+
+
 
 
 

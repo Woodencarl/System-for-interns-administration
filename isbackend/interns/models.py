@@ -38,6 +38,7 @@ class Intern(models.Model):
     position = models.CharField('Pozice', max_length=50, blank=True, null=True)
     assigned_coordinator = models.CharField('Přidělený koordinátor', max_length=100, blank=True, null=True)
     status = models.CharField('Status', max_length=200, blank=True)
+    active = models.BooleanField('Aktivní', default=True)
 
 
 class Comments(models.Model):
