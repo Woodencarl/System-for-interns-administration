@@ -7,35 +7,31 @@ from .models import Intern
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import login
+from pprint import pprint
+from django.contrib.auth.models import User
 
 
-def manage_form_intern(request):
-    if request.method == 'POST':
-        form = InternForm(request.POST, request.FILES)
+class RegisterView(generic.CreateView):
+    template_name = 'formularStazista.html'
+    model = Intern
+    form_class = InternForm
+    success_url = '/diky/'
 
-        if form.is_valid():
-            newIntern = form
-            newIntern = Intern(resume=request.FILES['resume'], cover_letter=request.FILES['cover_letter'])
-            print('form is valid')
-            newIntern.save()
-            #co se ulozi do newIntern? musim definovat vsechny sloupce?
-            #co kdyz frontend znehodnoti form?
-            return HttpResponseRedirect('/thanks/')
-        else:
-            print('NOT VALID')
-
-            # do something.
-    else:
-        form = InternForm()
-    return render(request, 'formularStazista.html', {'form': form})
+    def form_valid(self, form):
+        print('PASSES VALIDATION')
+        newintern = form.save(commit=False)
+        newintern.status = 'Novy'
+        pprint(vars(newintern))
+        newintern.save()
+        # co se ulozi do newIntern? musim definovat vsechny sloupce?
+        # co kdyz frontend znehodnoti form?
+        return super(RegisterView, self).form_valid(form)
 
 
 class viewIntern(generic.TemplateView):
     """Login view as home page."""
-
     template_name = 'staziste.html'
 
 
 class ThanksView(generic.TemplateView):
-
     template_name = 'diky.html'

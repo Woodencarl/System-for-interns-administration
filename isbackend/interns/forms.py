@@ -5,10 +5,6 @@ from positions.models import Position
 
 
 class InternForm(forms.ModelForm):
-    date_of_birth = forms.DateField(label=u'date of birth', input_formats='%Y-%m-%d', required=True,
-                                    widget=forms.DateInput(format='%Y-%m-%d'))
-
-
     class Meta:
         model = Intern
         fields = ('first_name', 'last_name', 'date_of_birth', 'e_mail', 'phone', 'school', 'faculty', 'year',
@@ -37,7 +33,7 @@ class InternForm(forms.ModelForm):
         placeholders = {
             'first_name': _('Bruce'),
             'last_name': _('Wayne'),
-            'date_of_birth': _('1939/1/19'),
+            'date_of_birth': _('1999-12-24'),
             'e_mail': _('bruce@wayne.gc'),
             'phone': _('314 159 265'),
             'school': _('Česká vysoká škola v Gotham City'),
