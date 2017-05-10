@@ -19,6 +19,7 @@ def manage_form_intern(request):
             print('form is valid')
             newIntern.save()
             #co se ulozi do newIntern? musim definovat vsechny sloupce?
+            #co kdyz frontend znehodnoti form?
             return HttpResponseRedirect('/thanks/')
         else:
             print('NOT VALID')
