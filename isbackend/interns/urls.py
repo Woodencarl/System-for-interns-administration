@@ -15,12 +15,14 @@ Including another URLconf
 """
 from django.conf.urls import url
 from .views import viewIntern
+from .views import ThanksView
 from .views import manage_form_intern
 from django.contrib.auth.decorators import login_required
 
 # viewInternForm.as_view()
 urlpatterns = [
     url(r'^formular/', manage_form_intern, name='internsForm'),
+
     url(r'^$', login_required(viewIntern.as_view()), name='interns'),
 
 ]

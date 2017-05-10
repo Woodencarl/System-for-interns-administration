@@ -15,16 +15,18 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from .views import ThanksView
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^diky/', ThanksView.as_view()),
     url(r'^staziste/', include('interns.urls')),
     url(r'^pozice/', include('positions.urls')),
     url(r'^odberatele/', include('subscribers.urls')),
     url(r'^odhlaseni/', include('login.urls')),
     url(r'^login/', auth_views.login, {'template_name': 'prihlaseni.html'}, name='prihlaseni'),
-    url(r'^logout/$', auth_views.logout, {'template_name': 'odhlaseni.html'}, name='logout'),
+    url(r'^logout/$', auth_views.logout_then_login, name='logout'),
     url(r'^', auth_views.login, {'template_name': 'prihlaseni.html'}, name='prihlaseni'),
-    # url(r'^', include('login.urls')),
+
 ]
