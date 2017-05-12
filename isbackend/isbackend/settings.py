@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
+from django.contrib.messages import constants as messages
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -133,3 +134,11 @@ DATE_INPUT_FORMATS = ['%Y-%m-%d',  # '2006-10-25'
                       '%m/%d/%Y',  # '10/25/2006'
                       '%m/%d/%y']  # '10/25/06'
 # STATIC_ROOT = os.path.join(BASE_DIR,'templates')
+
+MESSAGE_TAGS = {
+    messages.DEBUG: 'alert-info',
+    messages.INFO: 'alert-info',
+    messages.SUCCESS: 'alert-success',
+    messages.WARNING: 'alert-warning',
+    messages.ERROR: 'alert-danger',
+}

@@ -1,204 +1,220 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-<!-- page content -->
-<div class="right_col" role="main">
-
-    <div class="">
-        <div class="page-title">
-            <div class="title_left">
-                <h3>Editace profilu {{ intern.first_name}} {{ intern.last_name }}</h3>
-            </div>
-
+<div class="">
+    <div class="page-title">
+        <div class="title_left">
+            <h3>Editace profilu {{ intern.first_name}} {{ intern.last_name }}</h3>
         </div>
-        <div class="clearfix"></div>
 
-        <div class="row">
-            <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="x_panel">
+    </div>
+    <div class="clearfix"></div>
 
-                    <div class="x_content">
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
 
-                        <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="nav navbar-right panel_toolbox">
+                    <a href="/staziste/profil/{{intern.id}}/">
+                        <button class="btn btn-danger">Zrušit</button>
+                    </a>
+                </div>
+                <div class="x_content">
 
-                            <form id="editProfileForm" data-parsley-validate
-                                  class="form-horizontal form-label-left" method="post" action="save">
-                                {% csrf_token %}
-                                <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Jméno
-                                    </label>
-                                    <div class="col-md-3 col-sm-6 col-xs-12">
-                                        <input type="text" id="first_name" required="required"
-                                               class="form-control col-md-7 col-xs-12" value="{{ intern.first_name }}">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Příjmení
-                                    </label>
-                                    <div class="col-md-3 col-sm-6 col-xs-12">
-                                        <input type="text" id="last_name" name="last-name" required="required"
-                                               class="form-control col-md-7 col-xs-12" value="{{ intern.last_name }}">
-                                    </div>
-                                </div>
+                    <div class="col-md-12 col-sm-12 col-xs-12">
 
-                                <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Datum narození</label>
-                                    <div class="col-md-3 col-sm-6 col-xs-12">
-                                        <input id="date_of_birth" class="date-picker form-control col-md-7 col-xs-12"
-                                               required="required" type="date" value="{{ intern.date_of_birth }}">
-                                    </div>
+                        <form id="editProfileForm" data-parsley-validate
+                              class="form-horizontal form-label-left" method="post" action="save/">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Jméno
+                                </label>
+                                <div class="col-md-3 col-sm-6 col-xs-12">
+                                    <input type="text" id="first_name" 
+                                           class="form-control col-md-7 col-xs-12" value="{{ intern.first_name }}"
+                                           name="first_name">
                                 </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">E-mail</label>
-                                    <div class="col-md-3 col-sm-6 col-xs-12">
-                                        <input id="e_mail" class="date-picker form-control col-md-7 col-xs-12"
-                                               required="required" type="text" value="{{ intern.e_mail }}">
-                                    </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Příjmení
+                                </label>
+                                <div class="col-md-3 col-sm-6 col-xs-12">
+                                    <input type="text" id="last_name" name="last_name" 
+                                           class="form-control col-md-7 col-xs-12" value="{{ intern.last_name }}">
                                 </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Telefon</label>
-                                    <div class="col-md-3 col-sm-6 col-xs-12">
-                                        <input id="phone" class="date-picker form-control col-md-7 col-xs-12"
-                                               required="required" type="text" value="{{ intern.phone }}">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Škola</label>
-                                    <div class="col-md-3 col-sm-6 col-xs-12">
-                                        <input id="school" class="date-picker form-control col-md-7 col-xs-12"
-                                               required="required" type="text" value="{{ intern.school }}">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Fakulta</label>
-                                    <div class="col-md-3 col-sm-6 col-xs-12">
-                                        <input id="faculty" class="date-picker form-control col-md-7 col-xs-12"
-                                               required="required" type="text" value="{{ intern.faculty }}">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Ročník</label>
-                                    <div class="col-md-3 col-sm-6 col-xs-12">
-                                        <input id="year" class="date-picker form-control col-md-7 col-xs-12"
-                                               required="required" type="text" value="{{ intern.year }}">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Zaměření</label>
-                                    <div class="col-md-3 col-sm-6 col-xs-12">
-                                        <input id="field" class="date-picker form-control col-md-7 col-xs-12"
-                                               required="required" type="text" value="{{ intern.field }}">
-                                    </div>
-                                </div>
+                            </div>
 
-
-                                <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Pozice</label>
-                                    <div class="col-md-3 col-sm-6 col-xs-12">
-                                        <select class="form-control" id="position"
-                                                name="position">
-                                            <option>{{intern.position}}</option>
-                                            {% for pos in positions %}
-                                            <option>{{pos}}</option>
-                                            {% endfor %}
-                                        </select>
-                                    </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Datum narození</label>
+                                <div class="col-md-3 col-sm-6 col-xs-12">
+                                    <input id="date_of_birth" class="date-picker form-control col-md-7 col-xs-12"
+                                            type="date" value="{{ intern.date_of_birth|date:"Y-m-d" }}"
+                                           name="date_of_birth">
                                 </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Mentor</label>
-                                    <div class="col-md-3 col-sm-6 col-xs-12">
-                                        <input id="mentor" class="date-picker form-control col-md-7 col-xs-12"
-                                               required="required" type="text" value="{{ intern.mentor }}">
-                                    </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">E-mail</label>
+                                <div class="col-md-3 col-sm-6 col-xs-12">
+                                    <input id="e_mail" class="date-picker form-control col-md-7 col-xs-12"
+                                            type="text" value="{{ intern.e_mail }}"
+                                           name="e_mail">
                                 </div>
-
-                                <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Divize</label>
-                                    <div class="col-md-3 col-sm-6 col-xs-12">
-                                        <input id="division" class="date-picker form-control col-md-7 col-xs-12"
-                                               required="required" type="text" value="{{ intern.division }}">
-                                    </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Telefon</label>
+                                <div class="col-md-3 col-sm-6 col-xs-12">
+                                    <input id="phone" class="date-picker form-control col-md-7 col-xs-12"
+                                            type="text" value="{{ intern.phone }}" name="phone">
                                 </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Datum prvního
-                                        pohovoru</label>
-                                    <div class="col-md-3 col-sm-6 col-xs-12">
-                                        <input id="second_interview_date"
-                                               class="date-picker form-control col-md-7 col-xs-12"
-                                               required="required" type="text"
-                                               value="{{ intern.first_interview_date }}">
-                                    </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Škola</label>
+                                <div class="col-md-3 col-sm-6 col-xs-12">
+                                    <input id="school" class="date-picker form-control col-md-7 col-xs-12"
+                                            type="text" value="{{ intern.school }}"
+                                           name="school">
                                 </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Datum prvního
-                                        pohovoru</label>
-                                    <div class="col-md-3 col-sm-6 col-xs-12">
-                                        <input id="first_interview_date"
-                                               class="date-picker form-control col-md-7 col-xs-12"
-                                               required="required" type="text"
-                                               value="{{ intern.second_interview_date }}">
-                                    </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Fakulta</label>
+                                <div class="col-md-3 col-sm-6 col-xs-12">
+                                    <input id="faculty" class="date-picker form-control col-md-7 col-xs-12"
+                                            type="text" value="{{ intern.faculty }}"
+                                           name="faculty">
                                 </div>
-
-                                <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Smlouva do:</label>
-                                    <div class="col-md-3 col-sm-6 col-xs-12">
-                                        <input id="contract_till" class="date-picker form-control col-md-7 col-xs-12"
-                                               required="required" type="text" value="{{ intern.contract_till }}">
-                                    </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Ročník</label>
+                                <div class="col-md-3 col-sm-6 col-xs-12">
+                                    <input id="year" class="date-picker form-control col-md-7 col-xs-12"
+                                            type="text" value="{{ intern.year }}"
+                                           name="year">
                                 </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Přidělený
-                                        koordinátor:</label>
-                                    <div class="col-md-3 col-sm-6 col-xs-12">
-                                        <select class="form-control" id="assigned_coordinator"
-                                                name="assigned_coordinator">
-                                            <option>{{intern.assigned_coordinator}}</option>
-                                            {% for usr in users %}
-                                            {%if intern.assigned_coordinator != usr %}
-                                            <option>{{usr}}</option>
-                                            {% endif %}
-                                            {% endfor %}
-                                        </select>
-                                    </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Zaměření</label>
+                                <div class="col-md-3 col-sm-6 col-xs-12">
+                                    <input id="field" class="date-picker form-control col-md-7 col-xs-12"
+                                            type="text" value="{{ intern.field }}"
+                                           name="field">
                                 </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Status:</label>
-                                    <div class="col-md-3 col-sm-6 col-xs-12">
-                                        <input id="status" class="date-picker form-control col-md-7 col-xs-12"
-                                               required="required" type="text" value="{{ intern.status }}">
-                                    </div>
-                                </div>
+                            </div>
 
 
-                                <div class="ln_solid"></div>
-                                <div class="form-group">
-                                    <div class="col-md-3 col-sm-6 col-xs-12 col-md-offset-3">
-                                        <button type="submit" class="btn btn-success">Uložit</button>
-                                        <a href="/staziste/profil/{{intern.id}}">
-                                            <button class="btn btn-primary">Zrušit</button>
-                                        </a>
-                                    </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Pozice</label>
+                                <div class="col-md-3 col-sm-6 col-xs-12">
+                                    <select class="form-control" id="position"
+                                            name="position">
+                                        <option value=""> Bez pozice </option>
+                                        {% for pos in positions %}
+                                        <option value="{{pos}}"> {{pos}}</option>
+                                        {% endfor %}
+                                    </select>
                                 </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Mentor</label>
+                                <div class="col-md-3 col-sm-6 col-xs-12">
+                                    <input id="mentor" class="date-picker form-control col-md-7 col-xs-12"
+                                            type="text" value="{{ intern.mentor }}"
+                                           name="mentor">
+                                </div>
+                            </div>
 
-                            </form>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Divize</label>
+                                <div class="col-md-3 col-sm-6 col-xs-12">
+                                    <input id="division" class="date-picker form-control col-md-7 col-xs-12"
+                                            type="text" value="{{ intern.division }}"
+                                           name="division">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Datum prvního
+                                    pohovoru</label>
+                                <div class="col-md-3 col-sm-6 col-xs-12">
+                                    <input id="second_interview_date"
+                                           class="date-picker form-control col-md-7 col-xs-12"
+                                            type="text"
+                                           value="{{ intern.first_interview_date|default_if_none:"" }}"
+                                           name="first_interview_date">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Datum prvního
+                                    pohovoru</label>
+                                <div class="col-md-3 col-sm-6 col-xs-12">
+                                    <input id="first_interview_date"
+                                           class="date-picker form-control col-md-7 col-xs-12"
+                                           type="text"
+                                           value="{{ intern.second_interview_date|default_if_none:"" }}"
+                                           name="second_interview_date">
+                                </div>
+                            </div>
 
-                        </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Smlouva do:</label>
+                                <div class="col-md-3 col-sm-6 col-xs-12">
+                                    <input id="contract_till" class="date-picker form-control col-md-7 col-xs-12"
+                                            type="text" name="contract_till"
+                                           value="{{ intern.contract_till|default_if_none:"" }}">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Přidělený
+                                    koordinátor:</label>
+                                <div class="col-md-3 col-sm-6 col-xs-12">
+                                    <select class="form-control" id="assigned_coordinator"
+                                            name="assigned_coordinator">
+                                        <option value="{{intern.assigned_coordinator}}">
+                                            {{intern.assigned_coordinator}}
+                                        </option>
+                                        {% for usr in users %}
+                                        {%if intern.assigned_coordinator != usr %}
+                                        <option value="{{usr}}">{{usr}}</option>
+                                        {% endif %}
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Status:</label>
+                                <div class="col-md-3 col-sm-6 col-xs-12">
+                                    <input id="status" class="date-picker form-control col-md-7 col-xs-12"
+                                            name="status" type="text"
+                                           value="{{ intern.status }}">
+                                </div>
+                            </div>
+
+                            <!--<input name="interests" hidden>-->
+                            <!--<input name="learned_from" hidden>-->
+                            <!--<input name="resume" hidden>-->
+                            <!--<input name="cover_letter" hidden>-->
+                            <!--<input name="active" hidden>-->
+                            <!--<input name="wanted_boarding_date" hidden>-->
+                            <!--<input name="registration_date" hidden>-->
+
+                            {% for error in form.errors %}<p>{{ error }}</p> {% endfor %}
+                            {% for error in form.non_field_errors %}<p>{{ error }}</p> {% endfor %}
+
+
+                            <div class="ln_solid"></div>
+                            <div class="form-group">
+                                <div class="col-md-3 col-sm-6 col-xs-12 col-md-offset-3">
+                                    <button type="submit" class="btn btn-success">Uložit</button>
+
+                                </div>
+                            </div>
+
+                        </form>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <!-- footer content -->
-    <footer>
-        <div class="copyright-info">
-            <p class="pull-right">Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
-            </p>
-        </div>
-        <div class="clearfix"></div>
-    </footer>
-    <!-- /footer content -->
-
 </div>
+
+
 {% endblock content %}

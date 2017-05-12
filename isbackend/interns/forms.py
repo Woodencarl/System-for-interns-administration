@@ -69,6 +69,10 @@ class CommentForm(forms.ModelForm):
 class EditFrom(forms.ModelForm):
     class Meta:
         model = Intern
+        # fields = '__all__'
         fields = ('first_name', 'last_name', 'date_of_birth', 'e_mail', 'phone', 'school', 'faculty', 'year',
                   'field', 'position', 'mentor', 'division', 'first_interview_date', 'second_interview_date',
-                  'contract_till', 'assigned_coordinator', 'status')
+                  'contract_till', 'assigned_coordinator', 'status', 'learned_from',)
+
+    def _get_validation_exclusions(self):
+        exclude = ['__all__']

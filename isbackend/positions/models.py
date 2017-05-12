@@ -6,7 +6,7 @@ class Position(models.Model):
     mentor_name = models.CharField('Mentor', max_length=50)
     division = models.CharField('Divize', max_length=100)
     pros_of_mentor = models.CharField('Mentorovy přednosti', max_length=2000)
-    position_name = models.CharField('Jméno pozice', max_length=50)
+    position_name = models.CharField('Jméno pozice', max_length=50, unique=True)
     position_description = models.CharField('Popis pozice', max_length=2000)
     project = models.CharField('Projekt', max_length=1000)
     benefit_for_intern = models.CharField('Výhody pro stážistu', max_length=1000)
