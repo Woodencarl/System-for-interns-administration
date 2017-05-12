@@ -50,6 +50,7 @@
                                 <th>E-mail</th>
                                 <th>Telefon</th>
                                 <th>Status</th>
+                                <th>Datum registrace</th>
                                 <th>Profil</th>
                             </tr>
                             </thead>
@@ -61,6 +62,7 @@
                                 <td><a href="mailto:{{ intern.e_mail }}">{{ intern.e_mail }}</a></td>
                                 <td>{{ intern.phone }}</td>
                                 <td>{{ intern.status }}</td>
+                                <td>{{ intern.registration_date }}</td>
                                 <td>
                                     <a href="{% url 'profil' intern.id %}">
                                         <button type="button" class="btn btn-warning-sm btn-xs">Profil</button>
