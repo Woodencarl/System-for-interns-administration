@@ -30,7 +30,7 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Jméno
                                 </label>
                                 <div class="col-md-3 col-sm-6 col-xs-12">
-                                    <input type="text" id="first_name" 
+                                    <input type="text" id="first_name"
                                            class="form-control col-md-7 col-xs-12" value="{{ intern.first_name }}"
                                            name="first_name">
                                 </div>
@@ -39,7 +39,7 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Příjmení
                                 </label>
                                 <div class="col-md-3 col-sm-6 col-xs-12">
-                                    <input type="text" id="last_name" name="last_name" 
+                                    <input type="text" id="last_name" name="last_name"
                                            class="form-control col-md-7 col-xs-12" value="{{ intern.last_name }}">
                                 </div>
                             </div>
@@ -48,15 +48,15 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Datum narození</label>
                                 <div class="col-md-3 col-sm-6 col-xs-12">
                                     <input id="date_of_birth" class="date-picker form-control col-md-7 col-xs-12"
-                                            type="date" value="{{ intern.date_of_birth|date:"Y-m-d" }}"
-                                           name="date_of_birth">
+                                           type="date" value="{{ intern.date_of_birth|date:"Y-m-d" }}"
+                                    name="date_of_birth">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">E-mail</label>
                                 <div class="col-md-3 col-sm-6 col-xs-12">
                                     <input id="e_mail" class="date-picker form-control col-md-7 col-xs-12"
-                                            type="text" value="{{ intern.e_mail }}"
+                                           type="text" value="{{ intern.e_mail }}"
                                            name="e_mail">
                                 </div>
                             </div>
@@ -64,14 +64,14 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Telefon</label>
                                 <div class="col-md-3 col-sm-6 col-xs-12">
                                     <input id="phone" class="date-picker form-control col-md-7 col-xs-12"
-                                            type="text" value="{{ intern.phone }}" name="phone">
+                                           type="text" value="{{ intern.phone }}" name="phone">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Škola</label>
                                 <div class="col-md-3 col-sm-6 col-xs-12">
                                     <input id="school" class="date-picker form-control col-md-7 col-xs-12"
-                                            type="text" value="{{ intern.school }}"
+                                           type="text" value="{{ intern.school }}"
                                            name="school">
                                 </div>
                             </div>
@@ -79,7 +79,7 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Fakulta</label>
                                 <div class="col-md-3 col-sm-6 col-xs-12">
                                     <input id="faculty" class="date-picker form-control col-md-7 col-xs-12"
-                                            type="text" value="{{ intern.faculty }}"
+                                           type="text" value="{{ intern.faculty }}"
                                            name="faculty">
                                 </div>
                             </div>
@@ -87,7 +87,7 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Ročník</label>
                                 <div class="col-md-3 col-sm-6 col-xs-12">
                                     <input id="year" class="date-picker form-control col-md-7 col-xs-12"
-                                            type="text" value="{{ intern.year }}"
+                                           type="text" value="{{ intern.year }}"
                                            name="year">
                                 </div>
                             </div>
@@ -95,7 +95,7 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Zaměření</label>
                                 <div class="col-md-3 col-sm-6 col-xs-12">
                                     <input id="field" class="date-picker form-control col-md-7 col-xs-12"
-                                            type="text" value="{{ intern.field }}"
+                                           type="text" value="{{ intern.field }}"
                                            name="field">
                                 </div>
                             </div>
@@ -106,10 +106,23 @@
                                 <div class="col-md-3 col-sm-6 col-xs-12">
                                     <select class="form-control" id="position"
                                             name="position">
-                                        <option value=""> Bez pozice </option>
+                                        {% if intern.position == None %}
+                                        <option value=""> Bez pozice</option>
                                         {% for pos in positions %}
                                         <option value="{{pos}}"> {{pos}}</option>
                                         {% endfor %}
+                                        {% endif %}
+
+                                        {% if intern.position != None %}
+                                        <option value="{{intern.position}}">{{intern.position}}</option>
+                                        {% for pos in positions %}
+                                        {% if pos is not intern.position %}
+                                            <option value="{{pos}}"> {{pos}}</option>
+                                        {% endif %}
+                                        {% endfor %}
+                                        <option value=""> Bez pozice</option>
+                                        {% endif %}
+
                                     </select>
                                 </div>
                             </div>
@@ -117,7 +130,7 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Mentor</label>
                                 <div class="col-md-3 col-sm-6 col-xs-12">
                                     <input id="mentor" class="date-picker form-control col-md-7 col-xs-12"
-                                            type="text" value="{{ intern.mentor }}"
+                                           type="text" value="{{ intern.mentor }}"
                                            name="mentor">
                                 </div>
                             </div>
@@ -126,7 +139,7 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Divize</label>
                                 <div class="col-md-3 col-sm-6 col-xs-12">
                                     <input id="division" class="date-picker form-control col-md-7 col-xs-12"
-                                            type="text" value="{{ intern.division }}"
+                                           type="text" value="{{ intern.division }}"
                                            name="division">
                                 </div>
                             </div>
@@ -136,9 +149,9 @@
                                 <div class="col-md-3 col-sm-6 col-xs-12">
                                     <input id="second_interview_date"
                                            class="date-picker form-control col-md-7 col-xs-12"
-                                            type="text"
+                                           type="text"
                                            value="{{ intern.first_interview_date|default_if_none:"" }}"
-                                           name="first_interview_date">
+                                    name="first_interview_date">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -149,7 +162,7 @@
                                            class="date-picker form-control col-md-7 col-xs-12"
                                            type="text"
                                            value="{{ intern.second_interview_date|default_if_none:"" }}"
-                                           name="second_interview_date">
+                                    name="second_interview_date">
                                 </div>
                             </div>
 
@@ -157,7 +170,7 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Smlouva do:</label>
                                 <div class="col-md-3 col-sm-6 col-xs-12">
                                     <input id="contract_till" class="date-picker form-control col-md-7 col-xs-12"
-                                            type="text" name="contract_till"
+                                           type="text" name="contract_till"
                                            value="{{ intern.contract_till|default_if_none:"" }}">
                                 </div>
                             </div>
@@ -182,7 +195,7 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Status:</label>
                                 <div class="col-md-3 col-sm-6 col-xs-12">
                                     <input id="status" class="date-picker form-control col-md-7 col-xs-12"
-                                            name="status" type="text"
+                                           name="status" type="text"
                                            value="{{ intern.status }}">
                                 </div>
                             </div>

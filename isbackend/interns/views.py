@@ -89,14 +89,12 @@ def edit_profile(request, intern_id):
 
 
 def save_edit_profile(request, intern_id):
-    print('-----------------------------------------')
     if not request.user.is_authenticated():
         raise Http404
 
     form = EditFrom(request.POST)
-    pprint(request.POST)
+
     form.full_clean()
-    # print('-----------------------------VALID---------------')
     newIntern = get_object_or_404(Intern, pk=intern_id)
     newIntern.first_name = request.POST['first_name']
     newIntern.last_name = request.POST['last_name']
@@ -117,10 +115,16 @@ def save_edit_profile(request, intern_id):
     if request.POST['contract_till'] != '':
         newIntern.contract_till = request.POST['contract_till']
     newIntern.status = request.POST['status']
-    print("---------------------------------------")
+
     newIntern.assigned_coordinator = User.objects.get(username=request.POST['assigned_coordinator'])
+    if newIntern.position is not None:
+        setattr(Position.objects.get(position_name=newIntern.position), 'is_active', True)
     if request.POST['position'] != '':
+        setattr(Position.objects.get(position_name=request.POST['position']), 'is_active', False)
+        Position.objects.get(position_name=request.POST['position']).save()
         newIntern.position = Position.objects.get(position_name=request.POST['position']).__str__()
+    else:
+        newIntern.position = None
     newIntern.save()
     messages.success(request, 'Profile was UPDATED!')
     return redirect('/staziste/')
