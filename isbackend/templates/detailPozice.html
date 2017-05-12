@@ -1,310 +1,150 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
 
+{% for pos in position_list %}
+<div class="">
+    <div class="page-title">
+        <div class="title_left">
+            <h3>Detail pozice {{pos.position_name}}</h3>
+        </div>
+        <ul class="nav navbar-right panel_toolbox">
+            <li>
+                <a class="btn btn-danger" href="uzavrit/">Uzavřít</a>
+            </li>
+        </ul>
+    </div>
+    <div class="clearfix"></div>
 
-
-                <!-- page content -->
-                <div class="right_col" role="main">
-
-                    <div class="">
-                        <div class="page-title">
-                            <div class="title_left">
-                                <h3>Detail pozice</h3>
-                            </div>
-                            <ul class="nav navbar-right panel_toolbox">
-                                <li><button type="submit" class="btn btn-danger">Smazat pozici</button>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="clearfix"></div>
-
-                        <div class="row">
-                            <div class="col-md-2">
-                                <div class="x_panel">
-                                    <div class="x_title">
-                                        <h2>Název pozice</h2>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                    <div class="x_content">
-                                        Software engineer
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-2">
-                                <div class="x_panel">
-                                    <div class="x_title">
-                                        <h2>Jméno mentora </h2>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                    <div class="x_content">
-                                        John Doe
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-2">
-                                <div class="x_panel">
-                                    <div class="x_title">
-                                        <h2>Divize mentora </h2>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                    <div class="x_content">
-                                        John Doe
-                                    </div>
-                                </div>
-                            </div>
-
-
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="x_panel">
-                                    <div class="x_title">
-                                        <h2>Popis pozice</h2>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                    <div class="x_content">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mollis ligula in pulvinar egestas. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse maximus nisi et sagittis feugiat. Donec pretium tellus in mauris tristique, quis faucibus ligula vestibulum. Nullam blandit, nisl in varius imperdiet, libero sapien mollis erat, ullamcorper bibendum magna tellus et risus. Donec pretium porttitor efficitur. In sed tortor et dui consectetur scelerisque. Morbi sodales turpis urna, eu pharetra nisi blandit vel. Suspendisse a ipsum rutrum, malesuada nisl non, dapibus lorem.
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="x_panel">
-                                    <div class="x_title">
-                                        <h2>Projekt</h2>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                    <div class="x_content">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mollis ligula in pulvinar egestas. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse maximus nisi et sagittis feugiat. Donec pretium tellus in mauris tristique, quis faucibus ligula vestibulum. Nullam blandit, nisl in varius imperdiet, libero sapien mollis erat, ullamcorper bibendum magna tellus et risus. Donec pretium porttitor efficitur. In sed tortor et dui consectetur scelerisque. Morbi sodales turpis urna, eu pharetra nisi blandit vel. Suspendisse a ipsum rutrum, malesuada nisl non, dapibus lorem.
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="x_panel">
-                                    <div class="x_title">
-                                        <h2>Čím je mentor a jeho tým výjmečný?</h2>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                    <div class="x_content">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mollis ligula in pulvinar egestas. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse maximus nisi et sagittis feugiat. Donec pretium tellus in mauris tristique, quis faucibus ligula vestibulum. Nullam blandit, nisl in varius imperdiet, libero sapien mollis erat, ullamcorper bibendum magna tellus et risus. Donec pretium porttitor efficitur. In sed tortor et dui consectetur scelerisque. Morbi sodales turpis urna, eu pharetra nisi blandit vel. Suspendisse a ipsum rutrum, malesuada nisl non, dapibus lorem.
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="x_panel">
-                                    <div class="x_title">
-                                        <h2>Požadavky na stážistu</h2>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                    <div class="x_content">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mollis ligula in pulvinar egestas. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse maximus nisi et sagittis feugiat. Donec pretium tellus in mauris tristique, quis faucibus ligula vestibulum. Nullam blandit, nisl in varius imperdiet, libero sapien mollis erat, ullamcorper bibendum magna tellus et risus. Donec pretium porttitor efficitur. In sed tortor et dui consectetur scelerisque. Morbi sodales turpis urna, eu pharetra nisi blandit vel. Suspendisse a ipsum rutrum, malesuada nisl non, dapibus lorem.
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="x_panel">
-                                    <div class="x_title">
-                                        <h2>Přínosy pro stážistu</h2>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                    <div class="x_content">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mollis ligula in pulvinar egestas. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse maximus nisi et sagittis feugiat. Donec pretium tellus in mauris tristique, quis faucibus ligula vestibulum. Nullam blandit, nisl in varius imperdiet, libero sapien mollis erat, ullamcorper bibendum magna tellus et risus. Donec pretium porttitor efficitur. In sed tortor et dui consectetur scelerisque. Morbi sodales turpis urna, eu pharetra nisi blandit vel. Suspendisse a ipsum rutrum, malesuada nisl non, dapibus lorem.
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="x_panel">
-                                    <div class="x_title">
-                                        <h2>Poznámky</h2>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                    <div class="x_content">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mollis ligula in pulvinar egestas. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse maximus nisi et sagittis feugiat. Donec pretium tellus in mauris tristique, quis faucibus ligula vestibulum. Nullam blandit, nisl in varius imperdiet, libero sapien mollis erat, ullamcorper bibendum magna tellus et risus. Donec pretium porttitor efficitur. In sed tortor et dui consectetur scelerisque. Morbi sodales turpis urna, eu pharetra nisi blandit vel. Suspendisse a ipsum rutrum, malesuada nisl non, dapibus lorem.
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- footer content -->
-                    <footer>
-                        <div class="copyright-info">
-                            <p class="pull-right">Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>  
-                            </p>
-                        </div>
-                        <div class="clearfix"></div>
-                    </footer>
-                    <!-- /footer content -->
-
+    <div class="row">
+        <div class="col-md-2">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Název pozice</h2>
+                    <div class="clearfix"></div>
                 </div>
-                <!-- /page content -->
+                <div class="x_content">{{pos.position_name}}</div>
             </div>
+        </div>
+        <div class="col-md-2">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Jméno mentora </h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    {{pos.mentor_name}}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Divize mentora </h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    {{pos.division}}
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <div class="row">
+        <div class="col-md-6">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Popis pozice</h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    {% if pos.position_description %}
+                    {{pos.position_description}}
+                    {% endif %}
+                </div>
+            </div>
         </div>
 
-        <div id="custom_notifications" class="custom-notifications dsp_none">
-            <ul class="list-unstyled notifications clearfix" data-tabbed_notifications="notif-group">
-            </ul>
-            <div class="clearfix"></div>
-            <div id="notif-group" class="tabbed_notifications"></div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Projekt</h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    {% if pos.project %}
+                    {{pos.project}}
+                    {% endif %}
+                </div>
+            </div>
         </div>
 
-        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Čím je mentor a jeho tým výjmečný?</h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    {% if pos.pros_of_mentor %}
+                    {{pos.pros_of_mentor}}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Požadavky na stážistu</h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    {% if pos.requirements %}
+                    {{pos.requirements}}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Přínosy pro stážistu</h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    {% if pos.benefit_for_intern %}
+                    {{pos.benefit_for_intern}}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Poznámky</h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    {% if pos.notes %}
+                    {{pos.notes}}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
 
-        <!-- bootstrap progress js -->
-        <script src="{% static 'js/progressbar/bootstrap-progressbar.min.js' %}"></script>
-        <script src="{% static 'js/nicescroll/jquery.nicescroll.min.js' %}"></script>
-        <!-- icheck -->
-        <script src="{% static 'js/icheck/icheck.min.js' %}"></script>
+</div>
+{% endfor %}
 
-        <script src="{% static 'js/custom.js' %}"></script>
+{% endblock content %}
 
-        <!-- image cropping -->
-        <script src="{% static 'js/cropping/cropper.min.js' %}"></script>
-        <script src="{% static 'js/cropping/main.js' %}"></script>
-
-        <!-- daterangepicker -->
-        <script type="text/javascript" src="{% static 'js/moment/moment.min.js' %}"></script>
-        <script type="text/javascript" src="{% static 'js/datepicker/daterangepicker.js' %}"></script>
-
-        <!-- chart js -->
-        <script src="{% static 'js/chartproduction/js/chart.min.js' %}"></script>
-
-        <!-- moris js -->
-        <script src="{% static 'js/moris/raphael-min.js' %}"></script>
-        <script src="{% static 'js/moris/morris.min.js' %}"></script>
-
-        <!-- pace -->
-        <script src="{% static 'js/pace/pace.min.js' %}"></script>
-
-        <script>
-            $(function () {
-                var day_data = [{
-                        "period": "Jan",
-                        "Hours worked": 80
-                    }, {
-                        "period": "Feb",
-                        "Hours worked": 125
-                    }, {
-                        "period": "Mar",
-                        "Hours worked": 176
-                    }, {
-                        "period": "Apr",
-                        "Hours worked": 224
-                    }, {
-                        "period": "May",
-                        "Hours worked": 265
-                    }, {
-                        "period": "Jun",
-                        "Hours worked": 314
-                    }, {
-                        "period": "Jul",
-                        "Hours worked": 347
-                    }, {
-                        "period": "Aug",
-                        "Hours worked": 287
-                    }, {
-                        "period": "Sep",
-                        "Hours worked": 240
-                    }, {
-                        "period": "Oct",
-                        "Hours worked": 211
-                    }];
-                Morris.Bar({
-                    element: 'graph_bar',
-                    data: day_data,
-                    xkey: 'period',
-                    hideHover: 'auto',
-                    barColors: ['#26B99A', '#34495E', '#ACADAC', '#3498DB'],
-                    ykeys: ['Hours worked', 'sorned'],
-                    labels: ['Hours worked', 'SORN'],
-                    xLabelAngle: 60
-                });
-            });
-        </script>
-        <!-- datepicker -->
-        <script type="text/javascript">
-            $(document).ready(function () {
-
-                var cb = function (start, end, label) {
-                    console.log(start.toISOString(), end.toISOString(), label);
-                    $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
-                    //alert("Callback has fired: [" + start.format('MMMM D, YYYY') + " to " + end.format('MMMM D, YYYY') + ", label = " + label + "]");
-                }
-
-                var optionSet1 = {
-                    startDate: moment().subtract(29, 'days'),
-                    endDate: moment(),
-                    minDate: '01/01/2012',
-                    maxDate: '12/31/2015',
-                    dateLimit: {
-                        days: 60
-                    },
-                    showDropdowns: true,
-                    showWeekNumbers: true,
-                    timePicker: false,
-                    timePickerIncrement: 1,
-                    timePicker12Hour: true,
-                    ranges: {
-                        'Today': [moment(), moment()],
-                        'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-                        'Last 7 Days': [moment().subtract(6, 'days'), moment()],
-                        'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-                        'This Month': [moment().startOf('month'), moment().endOf('month')],
-                        'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
-                    },
-                    opens: 'left',
-                    buttonClasses: ['btn btn-default'],
-                    applyClass: 'btn-small btn-primary',
-                    cancelClass: 'btn-small',
-                    format: 'MM/DD/YYYY',
-                    separator: ' to ',
-                    locale: {
-                        applyLabel: 'Submit',
-                        cancelLabel: 'Clear',
-                        fromLabel: 'From',
-                        toLabel: 'To',
-                        customRangeLabel: 'Custom',
-                        daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
-                        monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-                        firstDay: 1
-                    }
-                };
-                $('#reportrange span').html(moment().subtract(29, 'days').format('MMMM D, YYYY') + ' - ' + moment().format('MMMM D, YYYY'));
-                $('#reportrange').daterangepicker(optionSet1, cb);
-                $('#reportrange').on('show.daterangepicker', function () {
-                    console.log("show event fired");
-                });
-                $('#reportrange').on('hide.daterangepicker', function () {
-                    console.log("hide event fired");
-                });
-                $('#reportrange').on('apply.daterangepicker', function (ev, picker) {
-                    console.log("apply event fired, start/end dates are " + picker.startDate.format('MMMM D, YYYY') + " to " + picker.endDate.format('MMMM D, YYYY'));
-                });
-                $('#reportrange').on('cancel.daterangepicker', function (ev, picker) {
-                    console.log("cancel event fired");
-                });
-                $('#options1').click(function () {
-                    $('#reportrange').data('daterangepicker').setOptions(optionSet1, cb);
-                });
-                $('#options2').click(function () {
-                    $('#reportrange').data('daterangepicker').setOptions(optionSet2, cb);
-                });
-                $('#destroy').click(function () {
-                    $('#reportrange').data('daterangepicker').remove();
-                });
-            });
-        </script>
-        <!-- /datepicker -->
-    </body>
-
-</html>

@@ -107,9 +107,9 @@
                                     <select class="form-control" id="position"
                                             name="position">
                                         {% if intern.position == None %}
-                                        <option value=""> Bez pozice</option>
+                                        <option value=""> None</option>
                                         {% for pos in positions %}
-                                        <option value="{{pos}}"> {{pos}}</option>
+                                        <option value="{{pos}}">{{pos}}</option>
                                         {% endfor %}
                                         {% endif %}
 
@@ -117,10 +117,10 @@
                                         <option value="{{intern.position}}">{{intern.position}}</option>
                                         {% for pos in positions %}
                                         {% if pos is not intern.position %}
-                                            <option value="{{pos}}"> {{pos}}</option>
+                                            <option value="{{pos}}">{{pos}}</option>
                                         {% endif %}
                                         {% endfor %}
-                                        <option value=""> Bez pozice</option>
+                                        <option value="">None</option>
                                         {% endif %}
 
                                     </select>

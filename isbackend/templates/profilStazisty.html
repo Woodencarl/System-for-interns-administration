@@ -3,168 +3,153 @@
 {% block content %}
 
 
-<!-- page content -->
-<div class="right_col" role="main">
-
-    <div class="">
-        <div class="page-title">
-            <div class="title_left">
-                <h3>Profil stážisty</h3>
-            </div>
-
+<div class="">
+    <div class="page-title">
+        <div class="title_left">
+            <h3>Profil stážisty</h3>
         </div>
-        <div class="clearfix"></div>
 
-        <div class="row">
-            <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="x_panel">
+    </div>
+    <div class="clearfix"></div>
 
-                    <div class="x_content">
-                        {% for intern in interns_list %}
-                        <div class="col-md-3 col-sm-3 col-xs-12 profile_left">
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
 
-                            <h3>{{ intern.first_name }} {{ intern.last_name }}</h3>
+                <div class="x_content">
+                    {% for intern in interns_list %}
+                    <div class="col-md-3 col-sm-3 col-xs-12 profile_left">
 
-                            <ul class="list-unstyled user_data">
+                        <h3>{{ intern.first_name }} {{ intern.last_name }}</h3>
 
-                                <li>
-                                    <i class="fa fa-birthday-cake user-profile-icon"></i> {{ intern.date_of_birth }}
-                                </li>
-                                <li>
-                                    <i class="fa fa-envelope user-profile-icon"></i> <a
-                                        href="mailto:{{ intern.e_mail }}">{{ intern.e_mail }}</a>
-                                </li>
-                                <li>
-                                    <i class="fa fa-phone user-profile-icon"></i> {{ intern.phone }}
-                                </li>
-                                <li>
-                                    <i class="fa fa-mortar-board user-profile-icon"></i> {{ intern.school }},
-                                    {{ intern.faculty }}
-                                </li>
-                                <li>
-                                    <i class="fa fa-paper-plane user-profile-icon"></i> {{ intern.year }},
-                                    {{ intern.field }}
-                                </li>
-                                <li>
-                                    <i class="fa fa-exclamation user-profile-icon"></i>
-                                    {% for interest in intern.interests.all %}
-                                    {{ interest }}
-                                    {% endfor %}
-                                </li>
-                                <li>
-                                    <a href="{{ intern.resume.url }}"
-                                       download>
-                                        <i class="fa fa-file user-profile-icon"></i> {{ intern.resume }} <i
-                                            class="fa fa-download user-profile-icon"></i></a>
+                        <ul class="list-unstyled user_data">
 
-                                </li>
-                                <li>
-                                    <a href="{{ intern.cover_letter.url }}" download>
-                                        <i class="fa fa-file-text-o user-profile-icon"></i>
-                                        {{ intern.cover_letter }} <i class="fa fa-download user-profile-icon"></i></a>
-                                </li>
-                                <li>
-                                    <i class="fa fa-bullhorn user-profile-icon"></i>
-                                    {{ intern.get_learned_from_display }}
-                                    <!--jak se dozvedel o programu-->
-                                </li>
-                                <li>
-                                    <i class="fa fa-pencil user-profile-icon"></i> {{ intern.registration_date }}
-                                    <!--datum registrace-->
-                                </li>
-                                <li>
-                                    <i class="fa fa-crosshairs user-profile-icon"></i> {{ intern.position }}
-                                </li>
-                                <li>
-                                    <i class="fa fa-user user-profile-icon"></i> {{ intern.mentor }}
-                                </li>
-                                <li>
-                                    <i class="fa fa-cubes user-profile-icon"></i> {{ intern.division }}
-                                </li>
+                            <li>
+                                <i class="fa fa-birthday-cake user-profile-icon"></i> {{ intern.date_of_birth }}
+                            </li>
+                            <li>
+                                <i class="fa fa-envelope user-profile-icon"></i> <a
+                                    href="mailto:{{ intern.e_mail }}">{{ intern.e_mail }}</a>
+                            </li>
+                            <li>
+                                <i class="fa fa-phone user-profile-icon"></i> {{ intern.phone }}
+                            </li>
+                            <li>
+                                <i class="fa fa-mortar-board user-profile-icon"></i> {{ intern.school }},
+                                {{ intern.faculty }}
+                            </li>
+                            <li>
+                                <i class="fa fa-paper-plane user-profile-icon"></i> {{ intern.year }},
+                                {{ intern.field }}
+                            </li>
+                            <li>
+                                <i class="fa fa-exclamation user-profile-icon"></i>
+                                {% for interest in intern.interests.all %}
+                                {{ interest }}
+                                {% endfor %}
+                            </li>
+                            <li>
+                                <a href="{{ intern.resume.url }}"
+                                   download>
+                                    <i class="fa fa-file user-profile-icon"></i> {{ intern.resume }} <i
+                                        class="fa fa-download user-profile-icon"></i></a>
 
-                                <li>
-                                    <i class="fa fa-heart user-profile-icon"></i> {{ intern.assigned_coordinator }}
-                                </li>
+                            </li>
+                            <li>
+                                <a href="{{ intern.cover_letter.url }}" download>
+                                    <i class="fa fa-file-text-o user-profile-icon"></i>
+                                    {{ intern.cover_letter }} <i class="fa fa-download user-profile-icon"></i></a>
+                            </li>
+                            <li>
+                                <i class="fa fa-bullhorn user-profile-icon"></i>
+                                {{ intern.get_learned_from_display }}
+                                <!--jak se dozvedel o programu-->
+                            </li>
+                            <li>
+                                <i class="fa fa-pencil user-profile-icon"></i> {{ intern.registration_date }}
+                                <!--datum registrace-->
+                            </li>
+                            <li>
+                                <i class="fa fa-crosshairs user-profile-icon"></i> {{ intern.position }}
+                            </li>
+                            <li>
+                                <i class="fa fa-user user-profile-icon"></i> {{ intern.mentor }}
+                            </li>
+                            <li>
+                                <i class="fa fa-cubes user-profile-icon"></i> {{ intern.division }}
+                            </li>
 
-                                <li>
-                                    <i class="fa fa-calendar user-profile-icon"></i> {{ intern.first_interview_date }}
-                                    <!-- datum 1. pohovoru-->
-                                </li>
-                                <li>
-                                    <i class="fa fa-calendar user-profile-icon"></i> {{ intern.second_interview_date }}
-                                    <!-- datum 2. pohovoru-->
-                                </li>
-                                <li>
-                                    <i class="fa fa-pencil-square-o user-profile-icon"></i> {{ intern.contract_till }}
-                                    <!-- smlouva do-->
-                                </li>
+                            <li>
+                                <i class="fa fa-heart user-profile-icon"></i> {{ intern.assigned_coordinator }}
+                            </li>
+
+                            <li>
+                                <i class="fa fa-calendar user-profile-icon"></i> {{ intern.first_interview_date }}
+                                <!-- datum 1. pohovoru-->
+                            </li>
+                            <li>
+                                <i class="fa fa-calendar user-profile-icon"></i> {{ intern.second_interview_date }}
+                                <!-- datum 2. pohovoru-->
+                            </li>
+                            <li>
+                                <i class="fa fa-pencil-square-o user-profile-icon"></i> {{ intern.contract_till }}
+                                <!-- smlouva do-->
+                            </li>
 
 
-                                <li>
-                                    <i class="fa fa-tags user-profile-icon"></i> Status: {{ intern.status }}
-                                </li>
+                            <li>
+                                <i class="fa fa-tags user-profile-icon"></i> Status: {{ intern.status }}
+                            </li>
 
-                            </ul>
-                            <br/>
-                            <a class="btn btn-success" href="editovat_profil/"><i
-                                    class="fa fa-edit m-right-xs"></i> Editovat Profil</a>
-                            <a class="btn btn-success"> Odeslat odkaz</a> <a class="btn btn-danger"> Uzavřít profil</a>
-                            <br/>
+                        </ul>
+                        <br/>
+                        <a class="btn btn-success" href="editovat_profil/"><i
+                                class="fa fa-edit m-right-xs"></i> Editovat Profil</a>
+                        <a class="btn btn-success"> Odeslat odkaz</a> <a class="btn btn-danger" href="uzavrit/"> Uzavřít
+                        profil</a>
+                        <br/>
 
-                        </div>
-                        {% endfor %}
+                    </div>
+                    {% endfor %}
 
-                        <div class="col-md-9 col-sm-9 col-xs-12">
-                            <div class="x_panel">
-                                <div class="x_content">
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_content">
 
-                                    <form method="post" action="create_comment">
-                                        {% csrf_token %}
-                                        <textarea class="resizable_textarea form-control" rows="3"
-                                                  placeholder="Vložte komentář ... " id="comment"
-                                                  name="comment"></textarea>
-                                        <br>
-                                        <input class="btn btn-success" type="submit" value="Uložit komentář">
-                                    </form>
+                                <form method="post" action="create_comment/">
+                                    {% csrf_token %}
+                                    <textarea class="resizable_textarea form-control" rows="3"
+                                              placeholder="Vložte komentář ... " id="comment"
+                                              name="comment"></textarea>
                                     <br>
-                                    <ul class="list-unstyled msg_list">
-                                        {% for comment in comments %}
-                                        <li>
-                                            <a>
+                                    <input class="btn btn-success" type="submit" value="Uložit komentář">
+                                </form>
+                                <br>
+                                <ul class="list-unstyled msg_list">
+                                    {% for comment in comments %}
+                                    <li>
+                                        <a>
                                             <span>
                                                 <span> {{ comment.author.username }}</span>
                                                 <span class="time">{{ comment.create_datetime }}</span>
                                             </span>
-                                                <span class="message">
+                                            <span class="message">
                                                {{ comment.comment }}
                                             </span>
-                                            </a>
-                                        </li>
-                                        {% endfor %}
+                                        </a>
+                                    </li>
+                                    {% endfor %}
 
-                                    </ul>
+                                </ul>
 
-                                </div>
                             </div>
                         </div>
-
                     </div>
 
                 </div>
+
             </div>
         </div>
     </div>
 
-    <!-- footer content -->
-    <footer>
-        <div class="copyright-info">
-            <p class="pull-right">Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
-            </p>
-        </div>
-        <div class="clearfix"></div>
-    </footer>
-    <!-- /footer content -->
-
-</div>
-<!-- /page content -->
-{% endblock content %}
+    {% endblock content %}

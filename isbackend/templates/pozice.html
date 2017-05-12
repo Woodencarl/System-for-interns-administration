@@ -2,59 +2,47 @@
 {% load static %}
 {% block content %}
 <!-- page content -->
-<div class="right_col" role="main">
-    <div class="">
 
-        <div class="clearfix"></div>
-        <div class="row">
-            <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="x_panel">
-                    <div class="x_title">
-                        <h2>Pozice</h2>
-                        <div class="clearfix"></div>
-                    </div>
-                    <div class="x_content">
+<div class="">
 
-                        <table id="datatable-responsive"
-                               class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0"
-                               width="100%">
-                            <thead>
-                            <tr>
-                                <th>Pozice</th>
-                                <th>Mentor</th>
-                                <th>Divize</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td>Business Developer</td>
-                                <td>Martin Černý</td>
-                                <td>One Channel</td>
-                            </tr>
-                            <tr>
-                                <td>Coffee Developer</td>
-                                <td>Tumáš Turek</td>
-                                <td>One Coffee</td>
-                            </tr>
+    <div class="clearfix"></div>
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Pozice</h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
 
-                            </tbody>
-                        </table>
+                    <table id="datatable-responsive"
+                           class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0"
+                           width="100%">
+                        <thead>
+                        <tr>
+                            <th>Pozice</th>
+                            <th>Mentor</th>
+                            <th>Detail</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for position in position_list %}
+                        <tr>
+                            <td>{{ position.position_name }}</td>
+                            <td>{{ position.mentor_name }}</td>
+                            <td><a href="{% url 'detail' position.id %}">
+                                <button type="button" class="btn btn-warning-sm btn-xs">Detail</button>
+                            </a></td>
+                        </tr>
+                        {% endfor %}
 
-                    </div>
+                        </tbody>
+                    </table>
+
                 </div>
             </div>
         </div>
     </div>
-    <!-- footer content -->
-    <footer>
-        <div class="copyright-info">
-            <p class="pull-right">Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
-            </p>
-        </div>
-        <div class="clearfix"></div>
-    </footer>
-    <!-- /footer content -->
-
 </div>
-<!-- /page content -->
+
 {% endblock content %}

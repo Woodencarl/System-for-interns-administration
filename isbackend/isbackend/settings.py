@@ -142,3 +142,9 @@ MESSAGE_TAGS = {
     messages.WARNING: 'alert-warning',
     messages.ERROR: 'alert-danger',
 }
+
+EMAIL_USE_SSL = True
+EMAIL_HOST = 'smtp.seznam.cz'
+EMAIL_PORT = 465
+EMAIL_HOST_USER = 'interns.system@seznam.cz'
+EMAIL_HOST_PASSWORD = 'bakalarkajanmara'

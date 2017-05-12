@@ -1,12 +1,11 @@
 from django.shortcuts import render
-from django.forms import modelformset_factory
-from django.shortcuts import render
 from django.views import generic
 from .forms import InternForm
 from .forms import CommentForm
 from .forms import EditFrom
 from .models import Intern
 from positions.models import Position
+from isbackend import settings
 from .models import Comments
 from django.http import HttpResponseRedirect
 from pprint import pprint
@@ -14,6 +13,8 @@ from django.contrib.auth.models import User
 from django.shortcuts import get_object_or_404, redirect, render
 from django.http import Http404
 from django.contrib import messages
+from django.core.mail import send_mail
+from django.template.loader import render_to_string, get_template
 
 
 class RegisterView(generic.CreateView):
@@ -23,11 +24,28 @@ class RegisterView(generic.CreateView):
     success_url = '/diky/'
 
     def form_valid(self, form):
-        # print('PASSES VALIDATION')
+        form.full_clean()
         newintern = form.save(commit=False)
-        # pprint(vars(newintern))
         newintern.assigned_coordinator = User.objects.last()
         newintern.save()
+        # msg_plain = render_to_string(get_template('mails/registracni_email.txt'), {'intern': newintern})
+        # msg_html = render_to_string(get_template('mails/registracni_email.html'), {'intern': newintern})
+        #
+        # send_mail('Registrace probehla uspesne',
+        #           msg_plain,
+        #           'interns.system@seznam.cz',
+        #           [newintern.e_mail], fail_silently=True, html_message=msg_html)
+
+        send_mail('Registrace probehla uspesne',
+                  'Ahoj, děkujeme za tvoji registraci.Za pár dní se ti ozveme.',
+                  settings.EMAIL_HOST_USER,
+                  [newintern.e_mail], fail_silently=True)
+
+        send_mail('Novy registrovany',
+                  'Ahoj, prave se registroval novy zajemce o staz.',
+                  settings.EMAIL_HOST_USER,
+                  [newintern.assigned_coordinator.email], fail_silently=True)
+
         return super(RegisterView, self).form_valid(form)
 
 
@@ -129,6 +147,9 @@ def save_edit_profile(request, intern_id):
     messages.success(request, 'Profile was UPDATED!')
     return redirect('/staziste/')
 
-# else:
-# messages.error(request, 'Profile was not updated!')
-# return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
+def close_profile(request, intern_id):
+    intern = get_object_or_404(Intern, pk=intern_id)
+    setattr(intern, 'active', False)
+    intern.save()
+    return redirect('/staziste/')
