@@ -1,7 +1,9 @@
 from django import forms
 from django.utils.translation import ugettext_lazy as _
 from .models import Intern
+from .models import Comments
 from positions.models import Position
+from django.utils.timezone import datetime
 
 
 class InternForm(forms.ModelForm):
@@ -21,8 +23,9 @@ class InternForm(forms.ModelForm):
             'faculty': _('Fakulta'),
             'year': _('Ročník'),
             'field': _('Zaměření'),
+            'wanted_boarding_date': _('Chtěný datum nástupu'),
             'interests': _('Zájem o'),
-            'learned_from': _('Vím o programu:'),
+            'learned_from': _('Vím o programu'),
             'resume': _('Životopis'),
             'cover_letter': _('Motivační dopis'),
         }
@@ -39,6 +42,7 @@ class InternForm(forms.ModelForm):
             'school': _('Česká vysoká škola v Gotham City'),
             'faculty': _('Fakulta bojových umění'),
             'year': _('2. ročník'),
+            'wanted_boarding_date': _(datetime.today()),
             'field': _('Tajemné zmizení a vyvolání strachu'),
             'interests': _('Zájmy'),
             'learned_from': _('Vím o programu'),
@@ -54,3 +58,17 @@ class InternForm(forms.ModelForm):
                     'class': 'form-control col-md-7 col-xs-12'
                 })
         self.fields['interests'].queryset = Position.objects.filter(is_active=True)
+
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comments
+        fields = ('comment',)
+
+
+class EditFrom(forms.ModelForm):
+    class Meta:
+        model = Intern
+        fields = ('first_name', 'last_name', 'date_of_birth', 'e_mail', 'phone', 'school', 'faculty', 'year',
+                  'field', 'position', 'mentor', 'division', 'first_interview_date', 'second_interview_date',
+                  'contract_till', 'assigned_coordinator', 'status')

@@ -17,8 +17,12 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from .views import ThanksView
 from django.contrib.auth import views as auth_views
+from . import settings
+from django.views.static import serve
+from django.contrib.auth.decorators import login_required
 
 urlpatterns = [
+    url(r'^media/(?P<path>.*)$', login_required(serve), {'document_root': settings.MEDIA_ROOT, }),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^diky/', ThanksView.as_view()),
     url(r'^staziste/', include('interns.urls')),

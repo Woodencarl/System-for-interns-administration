@@ -1,7 +1,8 @@
 from django.db import models
 
+
 class Position(models.Model):
-    is_active = models.BooleanField()
+    is_active = models.BooleanField(default=True)
     mentor_name = models.CharField('Mentor', max_length=50)
     division = models.CharField('Divize', max_length=100)
     pros_of_mentor = models.CharField('Mentorovy přednosti', max_length=2000)

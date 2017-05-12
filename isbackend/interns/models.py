@@ -2,6 +2,8 @@ from django.db import models
 from positions.models import Position
 from django.contrib.auth.models import User
 
+import os
+
 
 class Intern(models.Model):
     LEARNED_FORM_OPTIONS = (
@@ -31,19 +33,19 @@ class Intern(models.Model):
     registration_date = models.DateField('Datum registrace', auto_now_add=True)
     first_interview_date = models.DateField('Datum prvního pohovoru', blank=True, null=True)
     second_interview_date = models.DateField('Datum druhého pohovoru', blank=True, null=True)
-    wanted_boarding_date = models.DateField('Datum chtěného nástupu', blank=True, null=True)
-    real_boarding_date = models.DateField('Reálné datum nástupu', blank=True, null=True)
-    mentor = models.CharField('Mentor', max_length=50, blank=True, null=True)
-    division = models.CharField('Divize', max_length=50, blank=True, null=True)
-    position = models.CharField('Pozice', max_length=50, blank=True, null=True)
-    assigned_coordinator = models.CharField('Přidělený koordinátor', max_length=100, blank=True, null=True)
-    status = models.CharField('Status', max_length=200, blank=True)
+    wanted_boarding_date = models.DateField('Datum chtěného nástupu', auto_now_add=True)
+    contract_till = models.DateField('Reálné datum nástupu', blank=True, null=True)
+    mentor = models.CharField('Mentor', max_length=50, blank=True, null=True, default='Bez mentora')
+    division = models.CharField('Divize', max_length=50, blank=True, null=True, default='Bez divize')
+    position = models.CharField('Pozice', max_length=50, blank=True, null=True, default='Bez pozice')
+    assigned_coordinator = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
+    status = models.CharField('Status', max_length=200, blank=True, default='Novy')
     active = models.BooleanField('Aktivní', default=True)
 
 
 class Comments(models.Model):
     intern = models.ForeignKey(Intern, on_delete=models.CASCADE)
-    create_date = models.DateField(auto_now_add=True)
+    create_datetime = models.DateTimeField(auto_now_add=True)
     author = models.ForeignKey(User,
                                on_delete=models.CASCADE)  # later username when login app will work - name of logged person
     comment = models.CharField(max_length=10000)
