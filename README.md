@@ -9,4 +9,5 @@ Po naklonování repozitáře spusťe následující příkazy:
 <clone_dir>/isbackend/>python manage.py createsuperuser
 <clone_dir>/isbackend/>python manage.py runserver
 ```
+now you can visit page [http://127.0.0.1:8000/](http://127.0.0.1:8000/) or [http://127.0.0.1:8000/admin/](http://127.0.0.1:8000/admin/)
 
