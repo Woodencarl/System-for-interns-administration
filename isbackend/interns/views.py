@@ -168,7 +168,9 @@ def close_profile(request, intern_id):
 
 def erase_profile(request, intern_id):
     """Funcion based view for erasing intern from database"""
-    Intern.objects.filter(pk=intern_id).delete()
+    delintern = Intern.objects.filter(pk=intern_id)
+    delintern.assigned_coordinator = None
+    delintern.delete()
     # if request.user.is_authenticated(): # is_auth. bohuzel pri neprihlaseni presmeruje na prihlasovaci stranku
     #     return redirect('/staziste/')
     # else:
