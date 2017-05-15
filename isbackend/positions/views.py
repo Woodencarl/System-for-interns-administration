@@ -53,7 +53,7 @@ class ViewPositionsForm(generic.CreateView):
         newpos.save()
         body = 'Ahoj, prave se nekdo vypsal pozici na staz.' \
                'Pozice: ' + newpos.position_name + \
-                'Mentor: ' + newpos.mentor
+                'Mentor: ' + newpos.mentor_name
         send_mail('Novy registrovany',
                   body,
                   settings.EMAIL_HOST_USER,

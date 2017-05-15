@@ -69,6 +69,7 @@ def download_csv(request):
     response.write(u'\ufeff'.encode('utf8'))  # BOM (optional...Excel needs it to open UTF-8 file properly)
     writer.writerow([
         smart_str(u"e_mail"),
+
     ])
     for obj in queryset:
         writer.writerow([
