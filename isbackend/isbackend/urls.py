@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from .views import DeleteView
 from .views import ThanksView
+from .views import AgreeView
 from django.contrib.auth import views as auth_views
 from . import settings
 from django.views.static import serve
@@ -25,6 +27,8 @@ urlpatterns = [
     url(r'^media/(?P<path>.*)$', login_required(serve), {'document_root': settings.MEDIA_ROOT, }),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^diky/', ThanksView.as_view()),
+    url(r'^smazany/', DeleteView.as_view()),
+    url(r'^souhlas/', AgreeView.as_view()),
     url(r'^staziste/', include('interns.urls')),
     url(r'^pozice/', include('positions.urls')),
     url(r'^odberatele/', include('subscribers.urls')),

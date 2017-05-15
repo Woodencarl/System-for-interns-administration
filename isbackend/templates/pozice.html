@@ -22,6 +22,7 @@
                         <tr>
                             <th>Pozice</th>
                             <th>Mentor</th>
+                            <th>Datum registrace</th>
                             <th>Detail</th>
                         </tr>
                         </thead>
@@ -30,6 +31,7 @@
                         <tr>
                             <td>{{ position.position_name }}</td>
                             <td>{{ position.mentor_name }}</td>
+                            <td>{{ position.registration_date }}</td>
                             <td><a href="{% url 'detail' position.id %}">
                                 <button type="button" class="btn btn-warning-sm btn-xs">Detail</button>
                             </a></td>

@@ -4,7 +4,6 @@
 <!-- page content -->
 
 <div class="">
-
     <div class="clearfix"></div>
     <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
@@ -39,16 +38,16 @@
                         {% for subs in subscribers_list %}
                         <tr>
 
-                            <td>subs.first_name</td>
-                            <td>subs.last_name</td>
-                            <td>subs.e_mail</td>
-                            <td>subs.phone</td>
-                            <td>subs.interests</td>
-                            <td>subs.school</td>
-                            <td>subs.year</td>
-                            <td>subs.obligation</td>
-                            <td>subs.registration_date</td>
-                            <td><a href="{% url 'smazat' subs.id %}">
+                            <td>{{subs.first_name}}</td>
+                            <td>{{subs.last_name}}</td>
+                            <td>{{subs.e_mail}}</td>
+                            <td>{{subs.phone}}</td>
+                            <td>{{subs.interests}}</td>
+                            <td>{{subs.school}}</td>
+                            <td>{{subs.year}}</td>
+                            <td>{{subs.obligation}}</td>
+                            <td>{{subs.registration_date}}</td>
+                            <td><a href="{% url 'smazat' subs.sub_id %}">
                                 <button type="button" class="btn btn-warning-sm btn-xs">Smazat</button>
                             </a></td>
 
@@ -56,7 +55,9 @@
                         {% endfor %}
                         </tbody>
                     </table>
-                    <button type="submit" class="btn btn-success">Export CSV</button>
+                    <a href="exportCSV">
+                        <button type="submit" class="btn btn-success">Export CSV</button>
+                    </a>
                 </div>
             </div>
         </div>

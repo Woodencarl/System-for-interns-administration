@@ -74,5 +74,5 @@ class EditFrom(forms.ModelForm):
                   'field', 'position', 'mentor', 'division', 'first_interview_date', 'second_interview_date',
                   'contract_till', 'assigned_coordinator', 'status', 'learned_from',)
 
-    def _get_validation_exclusions(self):
-        exclude = ['__all__']
+    # def _get_validation_exclusions(self):
+    #     exclude = ['__all__']

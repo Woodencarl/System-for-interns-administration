@@ -1,10 +1,14 @@
 from django.shortcuts import render
 from .models import Position
+from django.contrib.auth.models import User
+from django.core.mail import send_mail
 from django.shortcuts import get_object_or_404, redirect
 from django.views import generic
+from .forms import PosForm
+from isbackend import settings
 
 
-class viewPositions(generic.TemplateView):
+class ViewPositions(generic.TemplateView):
     """Login view as home page."""
 
     template_name = 'pozice.html'
@@ -12,18 +16,18 @@ class viewPositions(generic.TemplateView):
     def get_context_data(self, **kwargs):
         """Feed the template with all required DB data to display."""
         # get the context object
-        context = super(viewPositions, self).get_context_data(**kwargs)
+        context = super(ViewPositions, self).get_context_data(**kwargs)
         context['position_list'] = Position.objects.filter(is_active=True)
         context['page_name'] = 'Pozice'
         return context
 
 
-class viewDetailPosition(generic.TemplateView):
+class ViewDetailPosition(generic.TemplateView):
     template_name = 'detailPozice.html'
 
     def get_context_data(self, **kwargs):
         """Feed the template with all required DB data to display."""
-        context = super(viewDetailPosition, self).get_context_data(**kwargs)
+        context = super(ViewDetailPosition, self).get_context_data(**kwargs)
         position_id = self.kwargs['position_id']
         context['position_list'] = Position.objects.filter(pk=position_id)
         context['page_name'] = 'Detail pozice'
@@ -37,7 +41,17 @@ def close_position(request, position_id):
     return redirect('/pozice/')
 
 
-class ViewPositionsForm(generic.TemplateView):
+class ViewPositionsForm(generic.CreateView):
     """Login view as home page."""
     template_name = 'formularPozice.html'
     success_url = '/diky/'
+    form_class = PosForm
+
+    def form_valid(self, form):
+
+        send_mail('Novy registrovany',
+                  'Ahoj, prave se nekdo vypsal pozici na staz.',
+                  settings.EMAIL_HOST_USER,
+                  [User.objects.last()], fail_silently=True)
+
+        return super(ViewPositionsForm, self).form_valid(form)

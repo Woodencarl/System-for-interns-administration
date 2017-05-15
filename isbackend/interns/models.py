@@ -1,6 +1,8 @@
 from django.db import models
 from positions.models import Position
 from django.contrib.auth.models import User
+from django.db import models
+import uuid
 
 import os
 
@@ -16,7 +18,7 @@ class Intern(models.Model):
         ('A', 'Sám jsem si našel'),
         ('J', 'Jinak')
     )
-
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     first_name = models.CharField('Jméno', max_length=30)
     last_name = models.CharField('Příjmení', max_length=30)
     date_of_birth = models.DateField('Datum narození')
@@ -31,7 +33,7 @@ class Intern(models.Model):
     resume = models.FileField('Životopis', upload_to='resumes/%Y/%m', blank=True)
     cover_letter = models.FileField('Motivační dopis', upload_to='cover_letters/%Y/%m', blank=True)
     registration_date = models.DateField('Datum registrace', auto_now_add=True)
-    first_interview_date = models.DateField('Datum prvního pohovoru', blank=True, null=True )
+    first_interview_date = models.DateField('Datum prvního pohovoru', blank=True, null=True)
     second_interview_date = models.DateField('Datum druhého pohovoru', blank=True, null=True)
     contract_till = models.DateField('Reálné datum nástupu', blank=True, null=True)
     mentor = models.CharField('Mentor', max_length=50, blank=True, null=True, default='Bez mentora')

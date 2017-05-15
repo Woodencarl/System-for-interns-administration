@@ -18,6 +18,7 @@ from django.template.loader import render_to_string, get_template
 
 
 class RegisterView(generic.CreateView):
+    """View making form for registration to internship program"""
     template_name = 'formularStazista.html'
     model = Intern
     form_class = InternForm
@@ -50,7 +51,7 @@ class RegisterView(generic.CreateView):
 
 
 class InternsTable(generic.CreateView):
-    """Login view as home page."""
+    """Interns table view to serve data for page."""
     template_name = 'staziste.html'
     model = Intern
     fields = '__all__'
@@ -153,3 +154,12 @@ def close_profile(request, intern_id):
     setattr(intern, 'active', False)
     intern.save()
     return redirect('/staziste/')
+
+
+def erase_profile(request, intern_id):
+    """Funcion based view for erasing intern from database"""
+    get_object_or_404(Intern, pk=intern_id).delete()
+    if request.user.is_authenticated():
+        return redirect('/staziste/')
+    else:
+        return redirect('/smazany/')

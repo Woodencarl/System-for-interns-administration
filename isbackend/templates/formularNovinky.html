@@ -31,123 +31,64 @@
         <div class="x_title">
             <h1>Odebírání novinek</h1>
         </div>
-        <form class="form-horizontal" data-parsley-validate>
-            <div class="x_content">
-                <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Jméno</label>
-                    <div class="col-md-8 col-sm-6 col-xs-12">
-                        <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
-                    </div>
-
-                </div>
-                <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Přímení</label>
-                    <div class="col-md-8 col-sm-6 col-xs-12">
-                        <input type="text" id="last-name" required="required" class="form-control col-md-7 col-xs-12">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">E-mail</label>
-                    <div class="col-md-8 col-sm-6 col-xs-12">
-                        <input type="email" id="email" required="required" class="form-control col-md-7 col-xs-12">
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Škola</label>
-                    <div class="col-md-8 col-sm-6 col-xs-12">
-                        <input id="school" class="form-control col-md-7 col-xs-12" type="text">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Ročník</label>
-                    <div class="col-md-8 col-sm-6 col-xs-12">
-                        <input type="text" id="year" class="form-control col-md-7 col-xs-12">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Telefon</label>
-                    <div class="col-md-8 col-sm-6 col-xs-12">
-                        <input type="tel" id="telephone" class="form-control col-md-7 col-xs-12">
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Úvazek</label>
-                    <div class="col-md-8 col-sm-6 col-xs-12">
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" class="flat"> Stáž
-                            </label>
-                        </div>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" class="flat"> Částečný úvazek
-                            </label>
-                        </div>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" class="flat"> Hlavní pracovní poměr
-                            </label>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Zájmy</label>
-                    <div class="col-md-8 col-sm-6 col-xs-12">
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" class="flat"> Design
-                            </label>s
-                        </div>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" class="flat"> Design
-                            </label>
-                        </div>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" class="flat"> Databáze
-                            </label>
-                        </div>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" class="flat"> Systémy
-                            </label>
-                        </div>
-
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" class="flat"> Umělá inteligence
-                            </label>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" class="flat" required="">* <a href="./souhlas.html"
-                                                                                 style="text-decoration: underline;">Souhlasím
-                            se zpracováním osobních údajů.</a>
-                        </label>
-                    </div>
-                </div>
+        <form class="form-horizontal" data-parsley-validate novalidate="" method="post" action="">
+            {% csrf_token %}
+            {% for field in form %}
+            {% if field.label != 'Souhlas' %}
+            <div class="form-group {% if field.field.required %} required{% endif %}">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">
+                    {{ field.label}}{% if field.label == 'E-mail' or field.label == 'Souhlas' %}
+                    <span class="required">*</span>{% endif %}
+                </label>
 
 
-                <div class="ln_solid"></div>
-                <div class="form-group">
-                    <div class="col-md-8 col-sm-6 col-xs-12 col-md-offset-3">
-                        <a href="staziste.html">
-                            <button type="submit" class="btn btn-success">Uložit</button>
-                        </a>
-
-                    </div>
+                <div class="col-md-8 col-sm-6 col-xs-12">
+                    {{ field }} <a href="/souhlas/" style="text-decoration: underline;">{{field.help_text}}</a>
+                    <ul class="parsley-errors-list filled">
+                        <li class="parsley-required">
+                            {{ field.errors }}
+                        </li>
+                    </ul>
                 </div>
             </div>
-        </form>
+            {% endif %}
 
+            {% endfor %}
+
+            <div class="form-group">
+                <div class="checkbox">
+                    <label for="agreement">
+                        <input id="agreement" name="agreement" type="checkbox" class="flat" required="required">*
+                        <a href="/souhlas/" style="text-decoration: underline;">Souhlasím
+                            se zpracováním osobních údajů.</a>
+                    </label>
+                </div>
+            </div>
+
+            <div class="ln_solid"></div>
+
+            {% if messages %}
+            {% for message in messages %}
+            <div class="alert {{ message.tags }} alert-dismissible fade in" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                        aria-hidden="true">×</span>
+                </button>
+                <strong>{{ message }}</strong>
+            </div>
+            {% endfor %}
+            {% endif %}
+
+            <div class="form-group">
+                <div class="col-md-8 col-sm-6 col-xs-12 col-md-offset-3">
+                    <button type="submit" class="btn btn-success">Uložit</button>
+                </div>
+            </div>
     </div>
+    </form>
+
 </div>
+</div>
+
 <script src="{% static 'js/bootstrap.min.js' %}"></script>
 
 <!-- bootstrap progress js -->
@@ -175,6 +116,24 @@
 <script>
             autosize($('.resizable_textarea'));
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </script>
 <!-- Autocomplete -->
 <script type="text/javascript" src="{% static 'js/autocomplete/countries.js' %}"></script>
@@ -197,6 +156,24 @@
                 });
             });
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </script>
 <script src="{% static 'js/custom.js' %}"></script>
 
@@ -215,6 +192,24 @@
                     allowClear: true
                 });
             });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </script>
 <!-- /select2 -->
@@ -237,6 +232,24 @@
                     width: 'auto'
                 });
             });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </script>
 <!-- /input tags -->
@@ -283,6 +296,24 @@
                 hljs.initHighlightingOnLoad();
             } catch (err) {
             }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </script>
 <!-- /form validation -->
@@ -352,6 +383,24 @@
                 });
                 window.prettyPrint && prettyPrint();
             });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </script>
 </body>

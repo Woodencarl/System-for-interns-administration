@@ -1,12 +1,11 @@
 from django.conf.urls import url
-from .views import viewSubscribers
-from .views import viewSubscribersForm
+from .views import ViewSubscribers
+from .views import ViewSubscribersForm
 from .views import delete_sub
 from django.contrib.auth.decorators import login_required
 
 urlpatterns = [
-    url(r'^formular/', viewSubscribersForm.as_view(), name='subscribersForm'),
-    url(r'^smazat/(?P<sub_id>\d+)/$', login_required(delete_sub), name="smazat odberatele"),
-    url(r'^$', login_required(viewSubscribers.as_view()), name='subscribers'),
-
+    url(r'^formular/', ViewSubscribersForm.as_view(), name='subscribersForm'),
+    url(r'^smazat/(?P<sub_id>[0-9a-f-]+)/$', delete_sub, name='smazat'),
+    url(r'^$', login_required(ViewSubscribers.as_view()), name='subscribers'),
 ]
