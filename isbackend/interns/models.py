@@ -46,7 +46,7 @@ class Intern(models.Model):
 
 class Comments(models.Model):
     intern = models.ForeignKey(Intern, on_delete=models.CASCADE)
-    create_datetime = models.DateTimeField(auto_now_add=True)
+    create_datetime = models.DateTimeField(auto_now_add=True, blank=True, null=True)
     author = models.ForeignKey(User,
                                on_delete=models.CASCADE)  # later username when login app will work - name of logged person
     comment = models.CharField(max_length=10000)
