@@ -9,7 +9,9 @@
             <h3>Profil stážisty</h3>
         </div>
         <div class="title_right">
-            <a class="btn btn-danger" href="{% url 'smazat' intern.id %}" style="float: right;"> SMAZAT profil</a>
+            <a class="btn btn-danger" href="{% url 'smazat' intern.id %}" style="float: right;">
+                <button> SMAZAT profil</button>
+            </a>
         </div>
 
     </div>
@@ -108,7 +110,7 @@
                         <br/>
                         <a class="btn btn-success" href="editovat_profil/"><i
                                 class="fa fa-edit m-right-xs"></i> Editovat Profil</a>
-                        <a class="btn btn-success"> Odeslat odkaz</a>
+                        <a class="btn btn-success" href="{% url 'poslat' intern.id %}"> Odeslat odkaz</a>
                         <br/>
                         <a class="btn btn-danger" href="uzavrit/"> Uzavřít profil</a>
 

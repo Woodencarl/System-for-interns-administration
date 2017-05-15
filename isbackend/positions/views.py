@@ -48,9 +48,14 @@ class ViewPositionsForm(generic.CreateView):
     form_class = PosForm
 
     def form_valid(self, form):
-
+        form.full_clean()
+        newpos = form.save(commit=False)
+        newpos.save()
+        body = 'Ahoj, prave se nekdo vypsal pozici na staz.' \
+               'Pozice: ' + newpos.position_name + \
+                'Mentor: ' + newpos.mentor
         send_mail('Novy registrovany',
-                  'Ahoj, prave se nekdo vypsal pozici na staz.',
+                  body,
                   settings.EMAIL_HOST_USER,
                   [User.objects.last()], fail_silently=True)
 

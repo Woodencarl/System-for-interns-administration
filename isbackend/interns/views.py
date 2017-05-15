@@ -29,6 +29,7 @@ class RegisterView(generic.CreateView):
         newintern = form.save(commit=False)
         newintern.assigned_coordinator = User.objects.last()
         newintern.save()
+        # redy for improvement by sending emails in html format
         # msg_plain = render_to_string(get_template('mails/registracni_email.txt'), {'intern': newintern})
         # msg_html = render_to_string(get_template('mails/registracni_email.html'), {'intern': newintern})
         #
@@ -37,13 +38,22 @@ class RegisterView(generic.CreateView):
         #           'interns.system@seznam.cz',
         #           [newintern.e_mail], fail_silently=True, html_message=msg_html)
 
+        body = 'Ahoj, děkujeme za tvoji registraci.Za pár dní se ti ozveme.' \
+               'Pokud chceš kdykoliv smazat své osobní údaje z naší databáze, zde je permanentní odkaz: ' + \
+               settings.ALLOWED_HOSTS[0] + \
+               '/staziste/smazat/' + newintern.id.__str__()
         send_mail('Registrace probehla uspesne',
-                  'Ahoj, děkujeme za tvoji registraci.Za pár dní se ti ozveme.',
+                  body,
                   settings.EMAIL_HOST_USER,
                   [newintern.e_mail], fail_silently=True)
 
+        body2 = 'Ahoj, prave se registroval novy zajemce o staz.' \
+                'Jméno: ' + newintern.first_name + newintern.last_name + \
+                'Email: ' + newintern.e_mail + \
+                'Telefon: ' + newintern.phone
+
         send_mail('Novy registrovany',
-                  'Ahoj, prave se registroval novy zajemce o staz.',
+                  body2,
                   settings.EMAIL_HOST_USER,
                   [newintern.assigned_coordinator.email], fail_silently=True)
 
@@ -158,8 +168,22 @@ def close_profile(request, intern_id):
 
 def erase_profile(request, intern_id):
     """Funcion based view for erasing intern from database"""
-    get_object_or_404(Intern, pk=intern_id).delete()
-    if request.user.is_authenticated():
-        return redirect('/staziste/')
-    else:
-        return redirect('/smazany/')
+    Intern.objects.filter(pk=intern_id).delete()
+    # if request.user.is_authenticated(): # is_auth. bohuzel pri neprihlaseni presmeruje na prihlasovaci stranku
+    #     return redirect('/staziste/')
+    # else:
+    return redirect('/smazany/')
+
+
+def send_to_intern(request, intern_id):
+    recieverintern = get_object_or_404(Intern, pk=intern_id)
+    body = 'Odkaz pro smazání.' \
+           'Pokud chceš kdykoliv smazat své osobní údaje z naší databáze, zde je permanentní odkaz: ' + \
+           settings.ALLOWED_HOSTS[0] + \
+           '/staziste/smazat/' + recieverintern.id.__str__()
+
+    send_mail('Registrace probehla uspesne',
+              body,
+              settings.EMAIL_HOST_USER,
+              [recieverintern.e_mail], fail_silently=True)
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
