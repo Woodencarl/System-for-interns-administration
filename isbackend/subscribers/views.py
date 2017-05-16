@@ -62,6 +62,7 @@ class ViewSubscribersForm(generic.CreateView):
 
 
 def download_csv(request):
+    """Returns CSV export with emails and erase links for mass mail"""
     queryset = Subscriber.objects.all()
     response = HttpResponse(content_type='text/csv')
     response['Content-Disposition'] = 'attachment; filename=subscribers.csv'
@@ -69,11 +70,13 @@ def download_csv(request):
     response.write(u'\ufeff'.encode('utf8'))  # BOM (optional...Excel needs it to open UTF-8 file properly)
     writer.writerow([
         smart_str(u"e_mail"),
-
+        smart_str(u"delURL"),
     ])
     for obj in queryset:
         writer.writerow([
             smart_str(obj.e_mail),
+            smart_str(settings.ALLOWED_HOSTS[0] + \
+               '/odberatele/smazat/' + obj.sub_id.__str__())
         ])
 
     print('-----------------------------------------------------')
