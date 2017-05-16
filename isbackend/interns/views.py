@@ -48,9 +48,9 @@ class RegisterView(generic.CreateView):
                   [newintern.e_mail], fail_silently=True)
 
         body2 = 'Ahoj, prave se registroval novy zajemce o staz.' \
-                'Jméno: ' + newintern.first_name + newintern.last_name + \
-                'Email: ' + newintern.e_mail + \
-                'Telefon: ' + newintern.phone
+                ' Jméno: ' + newintern.first_name + newintern.last_name + \
+                ' Email: ' + newintern.e_mail + \
+                ' Telefon: ' + newintern.phone
 
         send_mail('Novy registrovany',
                   body2,
