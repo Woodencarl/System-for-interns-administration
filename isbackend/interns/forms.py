@@ -10,7 +10,7 @@ class InternForm(forms.ModelForm):
     class Meta:
         model = Intern
         fields = ('first_name', 'last_name', 'date_of_birth', 'e_mail', 'phone', 'school', 'faculty', 'year',
-                  'field', 'interests', 'learned_from', 'resume', 'cover_letter')
+                  'field', 'interests', 'learned_from', 'resume', 'cover_letter', 'agreement')
         # exclude = ('resume','cover_letter') #exclude from form
 
         labels = {
@@ -28,6 +28,7 @@ class InternForm(forms.ModelForm):
             'learned_from': _('Vím o programu'),
             'resume': _('Životopis'),
             'cover_letter': _('Motivační dopis'),
+            'agreement': _('Souhlas'),
         }
 
     def __init__(self, *args, **kwargs):
@@ -51,13 +52,16 @@ class InternForm(forms.ModelForm):
         }
 
         for field in self.fields.keys():
-            if field != 'resume' and field != 'cover_letter':
+            if field != 'resume' and field != 'cover_letter' and field != 'agreement':
                 self.fields[field].widget.attrs.update({
                     'required': self.fields[field].required,
                     'placeholder': placeholders[field],
                     'class': 'form-control col-md-7 col-xs-12'
                 })
         self.fields['interests'].queryset = Position.objects.filter(is_active=True)
+
+    agreement = forms.BooleanField(label='Souhlas', help_text='Souhlas se zpracováním osobních údajů', required=True,
+                                   widget=forms.CheckboxInput(attrs={'class': 'checkbox flat'}))
 
 
 class CommentForm(forms.ModelForm):

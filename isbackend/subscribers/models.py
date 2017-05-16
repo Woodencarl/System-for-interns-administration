@@ -28,5 +28,6 @@ class Subscriber(models.Model):
     year = models.CharField(max_length=20, null=True, blank=True)
     obligation = models.CharField(max_length=100, null=True, blank=True)
     interests = models.CharField(max_length=300, null=True, blank=True)
+    agreement = models.BooleanField(default=False)
     registration_date = models.DateField(auto_now_add=True)
 

@@ -9,7 +9,7 @@ class NewsFrom(forms.ModelForm):
     class Meta:
         model = Subscriber
         fields = ('first_name', 'last_name', 'e_mail', 'phone', 'school', 'year',
-                  'obligation', 'interests', 'other')
+                  'obligation', 'interests', 'other', 'agreement')
         labels = {
             'first_name': _('Jméno'),
             'last_name': _('Příjmení'),
@@ -20,7 +20,7 @@ class NewsFrom(forms.ModelForm):
             'year': _('Ročník'),
             'obligation': _('Úvazek'),
             'interests': _('Zájem o'),
-            # 'agreement': _('Souhlas'),
+            'agreement': _('Souhlas'),
         }
 
     def __init__(self, *args, **kwargs):
@@ -34,7 +34,7 @@ class NewsFrom(forms.ModelForm):
             'school': _('Česká vysoká škola v Gotham City'),
             'year': _('2. ročník'),
             'other': _('Jiné'),
-            # 'agreement': _('Prosíme zaškrtnout'),
+            'agreement': _('Prosíme zaškrtnout'),
         }
         self.fields['e_mail'].required = True
         # self.fields['agreement'].required = True
@@ -51,5 +51,5 @@ class NewsFrom(forms.ModelForm):
                                           widget=forms.CheckboxSelectMultiple(attrs={'class': 'flat'}))
     other = forms.CharField(label='Jiné', required=False, max_length=100)
 
-    # agreement = forms.BooleanField(label='Souhlas', help_text='Souhlas se zpracováním osobních údajů', required=True,
-    #                                widget=forms.CheckboxInput(attrs={'class': 'checkbox flat'}))
+    agreement = forms.BooleanField(label='Souhlas', help_text='Souhlas se zpracováním osobních údajů', required=True,
+                                   widget=forms.CheckboxInput(attrs={'class': 'checkbox flat'}))

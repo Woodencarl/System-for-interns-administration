@@ -43,7 +43,7 @@
                         </label>
 
                         <div class="col-md-8 col-sm-6 col-xs-12">
-                            {{ field }}
+                            {{ field }}<a href="/souhlas/" style="text-decoration: underline;">{{field.help_text}}</a>
                             <ul class="parsley-errors-list filled">
                                 <li class="parsley-required">
                                     {{ field.errors }}

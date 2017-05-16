@@ -41,6 +41,7 @@ class Intern(models.Model):
     position = models.CharField('Pozice', max_length=50, blank=True, null=True, default=None)
     assigned_coordinator = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
     status = models.CharField('Status', max_length=200, blank=True, default='Novy')
+    agreement = models.BooleanField(default=False)
     active = models.BooleanField('Aktivní', default=True)
 
 
